@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1 O que são variáveis? - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>3.1 O que são Variáveis?</h1>
+            </div>
+            
+            <p>
+                Variáveis são um dos conceitos mais fundamentais em programação. Para entender de forma simples, 
+                pense em variáveis como <strong>caixas etiquetadas</strong> onde você pode guardar diferentes 
+                tipos de informações durante a execução do seu programa.
+            </p>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia com o mundo real
+                </div>
+                <p>
+                    Imagine que você está organizando uma festa e precisa armazenar diferentes itens. Você 
+                    poderia usar várias caixas e etiquetar cada uma: uma caixa chamada "Refrigerantes" para 
+                    guardar bebidas, outra chamada "Decorações" para os enfeites, e assim por diante.
+                </p>
+                <p>
+                    Em programação, as variáveis funcionam exatamente assim. Você cria "caixas" com nomes 
+                    específicos (como <code>idade</code>, <code>nome</code> ou <code>total</code>) e guarda 
+                    valores dentro delas. Depois, sempre que precisar desses valores, você pode "abrir a caixa" 
+                    referindo-se ao nome da variável.
+                </p>
+            </div>
+
+            <h2>Por que usamos variáveis?</h2>
+            
+            <p>
+                Antes de aprender a criar variáveis, vamos entender por que elas são tão importantes:
+            </p>
+
+            <ul>
+                <li><strong>Armazenar dados temporariamente</strong> - Permitem guardar informações durante a execução do programa</li>
+                <li><strong>Reutilizar valores</strong> - Em vez de repetir o mesmo valor várias vezes, você o armazena e usa quando necessário</li>
+                <li><strong>Tornar o código mais legível</strong> - Nomes significativos ajudam a entender o propósito dos dados</li>
+                <li><strong>Manipular e transformar dados</strong> - Você pode atualizar os valores conforme necessário</li>
+            </ul>
+
+            <h2>Criando variáveis em Python</h2>
+            
+            <p>
+                Em Python, criar uma variável é extremamente simples. Você não precisa declarar explicitamente 
+                o tipo de dados como em outras linguagens. Basta:
+            </p>
+
+            <ol>
+                <li>Escolher um nome para sua variável</li>
+                <li>Usar o operador de atribuição <code>=</code> (sinal de igual)</li>
+                <li>Especificar o valor que deseja armazenar</li>
+            </ol>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando uma variável para armazenar a idade de uma pessoa
+idade = 25
+
+# Criando uma variável para armazenar um nome
+nome = "Ana"
+
+# Exibindo os valores das variáveis
+print("A pessoa se chama", nome)
+print("Ela tem", idade, "anos de idade")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+A pessoa se chama Ana
+Ela tem 25 anos de idade
+                </div>
+            </div>
+
+            <p>
+                No exemplo acima:
+            </p>
+            <ul>
+                <li>Criamos uma variável chamada <code>idade</code> e armazenamos o número <code>25</code></li>
+                <li>Criamos outra variável chamada <code>nome</code> e armazenamos o texto <code>"Ana"</code></li>
+                <li>Usamos a função <code>print()</code> para exibir os valores dessas variáveis</li>
+            </ul>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    Entendendo a atribuição
+                </div>
+                <p>
+                    O símbolo <code>=</code> em Python é chamado de <strong>operador de atribuição</strong>. Ele não significa "igual a" como na matemática, mas sim "recebe o valor de" ou "armazena o valor".
+                </p>
+                <p>
+                    Quando você escreve <code>idade = 25</code>, está dizendo ao Python: "Crie uma variável chamada 'idade' e armazene o valor 25 nela".
+                </p>
+            </div>
+
+            <h2>Regras para nomes de variáveis</h2>
+            
+            <p>
+                Nem todos os nomes são permitidos para variáveis em Python. Existem algumas regras importantes que você deve seguir:
+            </p>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Regras obrigatórias
+                </div>
+                <ul>
+                    <li>Os nomes <strong>devem começar</strong> com uma letra (a-z, A-Z) ou underscore (_)</li>
+                    <li>O restante do nome <strong>pode conter</strong> letras, números e underscores</li>
+                    <li>Nomes de variáveis <strong>não podem começar com números</strong></li>
+                    <li>Nomes de variáveis <strong>não podem</strong> ser palavras reservadas do Python (como <code>if</code>, <code>for</code>, <code>while</code>, etc.)</li>
+                    <li>Python <strong>diferencia maiúsculas de minúsculas</strong> - <code>idade</code>, <code>Idade</code> e <code>IDADE</code> são três variáveis diferentes</li>
+                </ul>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplos de nomes VÁLIDOS
+idade = 25
+nome_completo = "Ana Silva"
+_contador = 0
+total123 = 1000
+minhaVariavel = "teste"
+
+# Exemplos de nomes INVÁLIDOS (não execute este código)
+# 1numero = 10  # Não pode começar com número
+# meu-nome = "João"  # Não pode conter hífen
+# if = 20  # Não pode ser palavra reservada
+
+# Python diferencia maiúsculas e minúsculas
+Valor = 10
+valor = 20
+
+# Essas são duas variáveis diferentes
+print("Valor com V maiúsculo:", Valor)  
+print("valor com v minúsculo:", valor)  </code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Valor com V maiúsculo: 10
+valor com v minúsculo: 20
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Boas práticas para nomear variáveis
+                </div>
+                <ol>
+                    <li><strong>Use nomes descritivos</strong> - Prefira <code>idade_usuario</code> em vez de <code>x</code> ou <code>a</code></li>
+                    <li><strong>Use snake_case</strong> - Em Python, a convenção é usar letras minúsculas com palavras separadas por underscores (Ex: <code>preco_total</code>, <code>nome_do_cliente</code>)</li>
+                    <li><strong>Evite nomes muito longos</strong> - <code>calculo_da_media_final_dos_alunos</code> é difícil de digitar. Prefira algo mais conciso como <code>media_final</code></li>
+                    <li><strong>Seja consistente</strong> - Se você começa a usar um estilo, mantenha-o em todo o código</li>
+                </ol>
+            </div>
+
+            <h2>Usando variáveis</h2>
+            
+            <p>
+                Depois de criar uma variável, você pode usá-la em diferentes partes do seu código. Vamos ver alguns exemplos:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando variáveis
+base = 10
+altura = 5
+
+# Usando variáveis em cálculos
+area = base * altura
+perimetro = 2 * (base + altura)
+
+# Exibindo os resultados
+print("Dimensões do retângulo:", base, "x", altura)
+print("Área:", area)
+print("Perímetro:", perimetro)
+
+# Usando variáveis em textos
+mensagem = "A área do retângulo é " + str(area) + " unidades quadradas."
+print(mensagem)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Dimensões do retângulo: 10 x 5
+Área: 50
+Perímetro: 30
+A área do retângulo é 50 unidades quadradas.
+                </div>
+            </div>
+
+            <p>
+                Observe que:
+            </p>
+            <ul>
+                <li>Criamos variáveis para armazenar as dimensões do retângulo</li>
+                <li>Usamos essas variáveis em cálculos para obter a área e o perímetro</li>
+                <li>Usamos a função <code>str()</code> para converter o número em texto ao combiná-lo com outras strings</li>
+            </ul>
+
+            <h2>Atribuição dinâmica</h2>
+            
+            <p>
+                Uma característica poderosa do Python é sua <strong>tipagem dinâmica</strong>. Isso significa que uma variável pode 
+                armazenar diferentes tipos de dados em diferentes momentos. Você pode reatribuir uma variável com um valor de 
+                tipo diferente a qualquer momento:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando uma variável com valor numérico
+contador = 10
+print("Valor inicial de contador:", contador)
+print("Tipo inicial:", type(contador))  # Mostra o tipo da variável
+
+# Mudando o valor e o tipo da variável
+contador = "dez"
+print("Novo valor de contador:", contador)
+print("Novo tipo:", type(contador))  # Agora o tipo mudou
+
+# Mudando novamente
+contador = True
+print("Valor final de contador:", contador)
+print("Tipo final:", type(contador))  # Mudou novamente</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Valor inicial de contador: 10
+Tipo inicial: <class 'int'>
+Novo valor de contador: dez
+Novo tipo: <class 'str'>
+Valor final de contador: True
+Tipo final: <class 'bool'>
+                </div>
+            </div>
+
+            <p>
+                No exemplo acima, a variável <code>contador</code> primeiro armazena um número inteiro (<code>int</code>), 
+                depois uma string (<code>str</code>), e finalmente um valor booleano (<code>bool</code>). O Python 
+                permite isso, o que torna a linguagem muito flexível.
+            </p>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Atenção!
+                </div>
+                <p>
+                    Embora o Python permita mudar o tipo de uma variável, é recomendável evitar isso 
+                    quando possível. Manter o mesmo tipo de dados para uma variável torna o código mais 
+                    previsível e facilita a detecção de erros.
+                </p>
+            </div>
+
+            <h2>Atribuição múltipla</h2>
+            
+            <p>
+                Python oferece formas convenientes de atribuir valores a múltiplas variáveis em uma única linha.
+                Isso é especialmente útil quando você precisa inicializar várias variáveis ao mesmo tempo.
+            </p>
+
+            <h3>Método 1: Mesmo valor para múltiplas variáveis</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Atribuindo o valor 0 a três variáveis de uma vez
+x = y = z = 0
+
+print("x =", x)
+print("y =", y)
+print("z =", z)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+x = 0
+y = 0
+z = 0
+                </div>
+            </div>
+
+            <h3>Método 2: Valores diferentes para múltiplas variáveis</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Atribuindo valores diferentes a múltiplas variáveis
+nome, idade, cidade = "Carlos", 30, "São Paulo"
+
+print("Nome:", nome)
+print("Idade:", idade)
+print("Cidade:", cidade)
+
+# Outro exemplo útil: trocando valores entre variáveis
+a = 5
+b = 10
+print("Antes da troca: a =", a, "e b =", b)
+
+# Em muitas linguagens, você precisaria de uma variável temporária
+# Mas em Python, pode fazer assim:
+a, b = b, a
+
+print("Depois da troca: a =", a, "e b =", b)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Nome: Carlos
+Idade: 30
+Cidade: São Paulo
+Antes da troca: a = 5 e b = 10
+Depois da troca: a = 10 e b = 5
+                </div>
+            </div>
+
+            <p>
+                A atribuição múltipla é especialmente útil quando você trabalha com funções que retornam 
+                múltiplos valores ou quando precisa desempacotar valores de estruturas de dados como listas ou tuplas.
+            </p>
+
+            <h2>Variáveis: perguntas frequentes</h2>
+            
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-question-circle"></i>
+                    As variáveis precisam ser declaradas antes de usá-las?
+                </div>
+                <p>
+                    Em Python, não é necessário declarar uma variável antes de usá-la. A variável é 
+                    criada no momento em que você atribui um valor a ela. Porém, tentar usar uma 
+                    variável que nunca foi atribuída causará um erro.
+                </p>
+                <pre><code class="python"># Isso funcionará
+nome = "Maria"
+print(nome)  # Exibe "Maria"
+
+# Isso causará um erro
+print(sobrenome)  # NameError: name 'sobrenome' is not defined</code></pre>
+            </div>
+            
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-question-circle"></i>
+                    Como saber o tipo de uma variável?
+                </div>
+                <p>
+                    Use a função <code>type()</code> para descobrir o tipo de dados que uma variável contém:
+                </p>
+                <pre><code class="python">x = 10
+y = "Hello"
+z = 3.14
+
+print(type(x))  # <class 'int'>
+print(type(y))  # <class 'str'>
+print(type(z))  # <class 'float'></code></pre>
+            </div>
+
+            <h2>Exercícios práticos</h2>
+            
+            <p>
+                Para fixar o conhecimento, tente fazer estes exercícios:
+            </p>
+
+            <ol>
+                <li>Crie variáveis para armazenar seu nome, idade e cidade</li>
+                <li>Use essas variáveis para imprimir uma frase como "Meu nome é [nome], tenho [idade] anos e moro em [cidade]."</li>
+                <li>Crie duas variáveis numéricas e realize as quatro operações básicas (adição, subtração, multiplicação e divisão)</li>
+                <li>Experimente trocar os valores entre duas variáveis usando atribuição múltipla</li>
+            </ol>
+
+            <div class="code-block">
+                <div class="code-header">Python - Tente você mesmo!</div>
+                <div class="code-content">
+                    <pre><code class="python"># Seus exercícios aqui
+# Por exemplo:
+
+# Exercício 1 e 2
+nome = "Seu Nome"
+idade = 25  # Substitua pela sua idade
+cidade = "Sua Cidade"
+
+# Imprima uma frase usando as variáveis
+
+# Exercício 3 - Operações matemáticas
+
+# Exercício 4 - Troca de valores
+</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+                </div>
+            </div>
+
+            <h2>Resumo</h2>
+            
+            <ul>
+                <li><strong>Variáveis</strong> são como "caixas etiquetadas" que armazenam dados na memória do computador</li>
+                <li>Para <strong>criar uma variável</strong>, use o formato: <code>nome_da_variavel = valor</code></li>
+                <li>Nomes de variáveis devem seguir <strong>regras específicas</strong>:
+                    <ul>
+                        <li>Começar com letra ou underscore</li>
+                        <li>Conter apenas letras, números e underscores</li>
+                        <li>Não ser palavras reservadas</li>
+                    </ul>
+                </li>
+                <li>Python é <strong>case-sensitive</strong>, portanto <code>nome</code> e <code>Nome</code> são variáveis diferentes</li>
+                <li>Python tem <strong>tipagem dinâmica</strong>, permitindo que uma variável mude de tipo durante a execução</li>
+                <li>É possível atribuir valores a <strong>múltiplas variáveis</strong> em uma única linha</li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica final
+                </div>
+                <p>
+                    Ao nomear variáveis, pense sempre na legibilidade do seu código. Um bom nome de 
+                    variável deve descrever claramente o que ela armazena. Isso torna seu código mais 
+                    fácil de entender, tanto para outras pessoas quanto para você mesmo no futuro!
+                </p>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="modulo2-3.html" class="nav-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Anterior: 2.3 Comentários
+                </a>
+                <a href="modulo3-2.html" class="nav-btn next-btn">
+                    Próximo: 3.2 Tipos de dados <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

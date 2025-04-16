@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2 Estruturas de Repetição - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+
+                <!-- Módulo 4 -->
+                <div class="module-title">
+                    Módulo 4 - Estruturas de Controle
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo4-1.html">4.1 Estruturas Condicionais</a>
+                    <a href="modulo4-2.html">4.2 Estruturas de Repetição</a>
+                    <a href="modulo4-3.html">4.3 Compreensões de Listas</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>4.2 Estruturas de Repetição em Python</h1>
+            </div>
+            
+            <p>
+                Uma das tarefas mais comuns em programação é repetir uma ação várias vezes. Por exemplo, 
+                você pode querer exibir todos os itens de uma lista, processar cada linha de um arquivo, 
+                ou executar um cálculo até que determinada condição seja atingida. Para essas tarefas, 
+                usamos <strong>estruturas de repetição</strong>, também conhecidas como <strong>loops</strong>.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>Como usar o loop <code>for</code> para iterar sobre sequências</li>
+                    <li>Como usar o loop <code>while</code> para repetir código enquanto uma condição for verdadeira</li>
+                    <li>Como interromper loops com <code>break</code> e pular iterações com <code>continue</code></li>
+                    <li>Como usar a função <code>range()</code> para gerar sequências numéricas</li>
+                    <li>Como criar loops aninhados para trabalhar com estruturas de dados multidimensionais</li>
+                </ul>
+            </div>
+
+            <h2>O Loop for</h2>
+            
+            <p>
+                O loop <code>for</code> em Python é usado para iterar sobre uma sequência (como uma lista, tupla, 
+                dicionário, conjunto ou string) e executar um bloco de código para cada elemento da sequência.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Estrutura básica do loop for
+frutas = ["maçã", "banana", "laranja", "uva"]
+
+# Iterando sobre uma lista
+for fruta in frutas:
+    print(f"Eu gosto de {fruta}.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Eu gosto de maçã.
+Eu gosto de banana.
+Eu gosto de laranja.
+Eu gosto de uva.
+                </div>
+            </div>
+
+            <p>
+                Vamos analisar este código:
+            </p>
+            <ul>
+                <li>A palavra-chave <code>for</code> inicia o loop</li>
+                <li><code>fruta</code> é uma variável que receberá cada elemento da lista em cada iteração</li>
+                <li><code>in</code> é a palavra-chave que separa a variável da sequência</li>
+                <li><code>frutas</code> é a sequência sobre a qual estamos iterando</li>
+                <li>O bloco de código indentado será executado uma vez para cada elemento da sequência</li>
+            </ul>
+
+            <p>
+                O loop <code>for</code> pode ser usado com qualquer tipo de sequência:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Loop for com diferentes tipos de sequências
+
+# Iterando sobre uma string (cada caractere)
+for letra in "Python":
+    print(letra)
+
+print("-" * 20)  # Separador
+
+# Iterando sobre um dicionário
+capitais = {"Brasil": "Brasília", "França": "Paris", "Japão": "Tóquio"}
+
+# Por padrão, itera sobre as chaves
+for pais in capitais:
+    print(f"A capital do {pais} é {capitais[pais]}")
+
+print("-" * 20)  # Separador
+
+# Iterando sobre os valores
+for capital in capitais.values():
+    print(capital)
+
+print("-" * 20)  # Separador
+
+# Iterando sobre chaves e valores simultaneamente
+for pais, capital in capitais.items():
+    print(f"{pais}: {capital}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+P
+y
+t
+h
+o
+n
+--------------------
+A capital do Brasil é Brasília
+A capital do França é Paris
+A capital do Japão é Tóquio
+--------------------
+Brasília
+Paris
+Tóquio
+--------------------
+Brasil: Brasília
+França: Paris
+Japão: Tóquio
+                </div>
+            </div>
+
+            <h2>A Função range()</h2>
+            
+            <p>
+                Uma ferramenta essencial para trabalhar com loops <code>for</code> é a função <code>range()</code>, 
+                que gera uma sequência de números. É particularmente útil quando você precisa executar um código 
+                um número específico de vezes.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando range() em loops for
+
+# range(stop) - gera números de 0 até stop-1
+print("range(5):")
+for i in range(5):
+    print(i)
+
+print("-" * 20)  # Separador
+
+# range(start, stop) - gera números de start até stop-1
+print("range(2, 8):")
+for i in range(2, 8):
+    print(i)
+
+print("-" * 20)  # Separador
+
+# range(start, stop, step) - gera números de start até stop-1 com incremento de step
+print("range(1, 10, 2):")
+for i in range(1, 10, 2):
+    print(i)
+
+print("-" * 20)  # Separador
+
+# range com incremento negativo (contagem regressiva)
+print("range(10, 0, -1):")
+for i in range(10, 0, -1):
+    print(i)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+range(5):
+0
+1
+2
+3
+4
+--------------------
+range(2, 8):
+2
+3
+4
+5
+6
+7
+--------------------
+range(1, 10, 2):
+1
+3
+5
+7
+9
+--------------------
+range(10, 0, -1):
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Usando range com listas
+                </div>
+                <p>
+                    Para acessar os elementos de uma lista pelo índice, você pode combinar <code>range()</code> 
+                    com a função <code>len()</code>:
+                </p>
+                <pre><code class="python">frutas = ["maçã", "banana", "laranja", "uva"]
+
+# Iterando pelos índices
+for i in range(len(frutas)):
+    print(f"Índice {i}: {frutas[i]}")</code></pre>
+            </div>
+
+            <h2>O Loop while</h2>
+            
+            <p>
+                Enquanto o loop <code>for</code> é usado para iterar sobre uma sequência, o loop <code>while</code> 
+                executa um bloco de código enquanto uma condição for verdadeira.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Estrutura básica do loop while
+contador = 1
+
+while contador <= 5:
+    print(f"Contador: {contador}")
+    contador += 1  # Incrementa o contador
+
+print("Loop encerrado!")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Contador: 1
+Contador: 2
+Contador: 3
+Contador: 4
+Contador: 5
+Loop encerrado!
+                </div>
+            </div>
+
+            <p>
+                Aqui está o que acontece:
+            </p>
+            <ol>
+                <li>A variável <code>contador</code> é inicializada com o valor 1.</li>
+                <li>O loop <code>while</code> verifica a condição <code>contador <= 5</code>. Como é verdadeira, ele executa o bloco de código.</li>
+                <li>O bloco imprime o valor do contador e depois incrementa o contador em 1.</li>
+                <li>O loop volta ao início e verifica a condição novamente.</li>
+                <li>Este processo continua até que a condição seja falsa (quando <code>contador</code> se torna 6).</li>
+                <li>Quando a condição é falsa, o loop termina e o programa continua executando o código após o loop.</li>
+            </ol>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Cuidado com loops infinitos!
+                </div>
+                <p>
+                    Se a condição de um loop <code>while</code> nunca se tornar falsa, o loop continuará executando 
+                    indefinidamente, criando um "loop infinito". Isso pode travar seu programa ou consumir recursos 
+                    do sistema. Sempre certifique-se de que há alguma maneira da condição eventualmente se tornar falsa.
+                </p>
+                <pre><code class="python"># CUIDADO: Este é um loop infinito!
+# while True:
+#     print("Isso vai imprimir para sempre")
+</code></pre>
+            </div>
+
+            <h3>Usando while para entrada do usuário</h3>
+            
+            <p>
+                Um uso comum para o loop <code>while</code> é continuar executando um bloco de código até que o usuário 
+                forneça uma entrada específica:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando while para validar entrada do usuário
+resposta = ""
+
+while resposta != "sim" and resposta != "não":
+    resposta = input("Você gosta de Python? (sim/não): ").lower()
+    if resposta != "sim" and resposta != "não":
+        print("Por favor, responda apenas 'sim' ou 'não'.")
+
+print(f"Você respondeu: {resposta}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Você gosta de Python? (sim/não): talvez
+Por favor, responda apenas 'sim' ou 'não'.
+Você gosta de Python? (sim/não): sim
+Você respondeu: sim
+                </div>
+            </div>
+
+            <h2>Escolhendo entre for e while</h2>
+            
+            <table>
+                <tr>
+                    <th>Use <code>for</code> quando:</th>
+                    <th>Use <code>while</code> quando:</th>
+                </tr>
+                <tr>
+                    <td>Você sabe exatamente quantas vezes o loop deve executar</td>
+                    <td>Você não sabe quantas vezes o loop deve executar</td>
+                </tr>
+                <tr>
+                    <td>Você está iterando sobre uma sequência (lista, string, etc.)</td>
+                    <td>Você precisa repetir até que uma condição mude</td>
+                </tr>
+                <tr>
+                    <td>Você precisa de um contador com incrementos regulares</td>
+                    <td>Você precisa esperar por algum evento ou entrada</td>
+                </tr>
+            </table>
+
+            <h2>Controle de Fluxo em Loops: break e continue</h2>
+            
+            <p>
+                Python fornece duas instruções especiais para controlar o fluxo de execução dentro de loops:
+            </p>
+
+            <h3>A Instrução break</h3>
+            
+            <p>
+                A instrução <code>break</code> é usada para sair imediatamente de um loop, interrompendo a execução 
+                das iterações restantes:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando break para sair de um loop
+
+# Exemplo 1: Encontrando um número em uma lista
+numeros = [4, 7, 11, 16, 21, 25, 30]
+buscar = 16
+
+for num in numeros:
+    print(f"Verificando o número {num}")
+    if num == buscar:
+        print(f"Encontrado! {buscar} está na lista.")
+        break  # Sai do loop assim que encontrar o número
+print("Busca finalizada.")
+
+print("-" * 20)  # Separador
+
+# Exemplo 2: Validando uma senha
+while True:
+    senha = input("Digite sua senha (ou 'sair' para encerrar): ")
+    
+    if senha == "sair":
+        print("Operação cancelada pelo usuário.")
+        break
+    
+    if len(senha) < 6:
+        print("Senha muito curta. Mínimo de 6 caracteres.")
+    else:
+        print("Senha aceita!")
+        break</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Verificando o número 4
+Verificando o número 7
+Verificando o número 11
+Verificando o número 16
+Encontrado! 16 está na lista.
+Busca finalizada.
+--------------------
+Digite sua senha (ou 'sair' para encerrar): abc
+Senha muito curta. Mínimo de 6 caracteres.
+Digite sua senha (ou 'sair' para encerrar): senha123
+Senha aceita!
+                </div>
+            </div>
+
+            <h3>A Instrução continue</h3>
+            
+            <p>
+                A instrução <code>continue</code> pula o restante do código dentro do loop para a iteração atual 
+                e passa para a próxima iteração:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando continue para pular iterações
+
+# Exemplo 1: Processando apenas números pares
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for num in numeros:
+    if num % 2 != 0:  # Se o número for ímpar
+        continue      # Pula para o próximo número
+    print(f"Processando número par: {num}")
+
+print("-" * 20)  # Separador
+
+# Exemplo 2: Ignorando valores vazios em uma lista
+valores = ["Python", "", "Java", "", "", "C++", "JavaScript"]
+
+for valor in valores:
+    if valor == "":
+        continue  # Pula strings vazias
+        
+    print(f"Linguagem: {valor}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Processando número par: 2
+Processando número par: 4
+Processando número par: 6
+Processando número par: 8
+Processando número par: 10
+--------------------
+Linguagem: Python
+Linguagem: Java
+Linguagem: C++
+Linguagem: JavaScript
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Diferença entre break e continue
+                </div>
+                <ul>
+                    <li><code>break</code>: <strong>Termina</strong> o loop completamente e passa para o código após o loop</li>
+                    <li><code>continue</code>: <strong>Pula</strong> para a próxima iteração do loop, ignorando o código restante na iteração atual</li>
+                </ul>
+            </div>
+
+            <h2>Loops Aninhados</h2>
+            
+            <p>
+                Assim como nas estruturas condicionais, é possível aninhar loops (colocar um loop dentro de outro). 
+                Isso é útil quando trabalhamos com estruturas de dados multidimensionais como matrizes.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Loops aninhados
+# Criando uma tabuada de multiplicação
+for i in range(1, 6):      # Loop externo: números de 1 a 5
+    for j in range(1, 11):  # Loop interno: números de 1 a 10
+        produto = i * j
+        print(f"{i} x {j} = {produto}")
+    print("-" * 15)  # Separador entre as tabuadas</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+1 x 1 = 1
+1 x 2 = 2
+1 x 3 = 3
+1 x 4 = 4
+1 x 5 = 5
+1 x 6 = 6
+1 x 7 = 7
+1 x 8 = 8
+1 x 9 = 9
+1 x 10 = 10
+---------------
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+2 x 5 = 10
+2 x 6 = 12
+2 x 7 = 14
+2 x 8 = 16
+2 x 9 = 18
+2 x 10 = 20
+---------------
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+3 x 4 = 12
+3 x 5 = 15
+3 x 6 = 18
+3 x 7 = 21
+3 x 8 = 24
+3 x 9 = 27
+3 x 10 = 30
+---------------
+4 x 1 = 4
+4 x 2 = 8
+4 x 3 = 12
+4 x 4 = 16
+4 x 5 = 20
+4 x 6 = 24
+4 x 7 = 28
+4 x 8 = 32
+4 x 9 = 36
+4 x 10 = 40
+---------------
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+---------------
+                </div>
+            </div>
+
+            <p>
+                Aqui está outro exemplo que trabalha com listas aninhadas (também conhecidas como matrizes):
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Trabalhando com matriz (lista aninhada)
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Matriz original:")
+for linha in matriz:
+    print(linha)
+
+print("\nElementos da matriz:")
+for i in range(len(matriz)):
+    for j in range(len(matriz[i])):
+        print(f"Posição [{i}][{j}]: {matriz[i][j]}")
+
+print("\nSoma de todos os elementos:")
+soma = 0
+for linha in matriz:
+    for elemento in linha:
+        soma += elemento
+print(f"Soma total: {soma}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Matriz original:
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 9]
+
+Elementos da matriz:
+Posição [0][0]: 1
+Posição [0][1]: 2
+Posição [0][2]: 3
+Posição [1][0]: 4
+Posição [1][1]: 5
+Posição [1][2]: 6
+Posição [2][0]: 7
+Posição [2][1]: 8
+Posição [2][2]: 9
+
+Soma de todos os elementos:
+Soma total: 45
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Cuidado com loops aninhados
+                </div>
+                <p>
+                    Loops aninhados podem ser muito úteis, mas lembre-se de que cada nível adicional multiplica o número 
+                    de iterações. Por exemplo, um loop de 10 iterações dentro de outro loop de 10 iterações resultará em 
+                    100 iterações no total. Isso pode levar a problemas de desempenho se o número de iterações for muito grande.
+                </p>
+            </div>
+
+            <h2>A Instrução else com Loops</h2>
+            
+            <p>
+                Uma característica interessante em Python é que tanto o loop <code>for</code> quanto o <code>while</code> 
+                podem ter uma cláusula <code>else</code>. O bloco <code>else</code> é executado quando o loop termina 
+                normalmente (sem ser interrompido por um <code>break</code>).
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando else com loops for e while
+
+# Exemplo 1: Verificando se um número é primo
+numero = 13
+for i in range(2, int(numero ** 0.5) + 1):
+    if numero % i == 0:
+        print(f"{numero} não é primo. É divisível por {i}.")
+        break
+else:
+    # Este bloco é executado se o loop terminar normalmente (sem break)
+    print(f"{numero} é primo!")
+
+print("-" * 20)  # Separador
+
+# Exemplo 2: Tentando encontrar um nome em uma lista
+nomes = ["Ana", "Carlos", "Daniel", "Beatriz"]
+buscar = "Eduardo"
+
+for nome in nomes:
+    if nome == buscar:
+        print(f"Encontrado! {buscar} está na lista.")
+        break
+else:
+    print(f"{buscar} não foi encontrado na lista.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+13 é primo!
+--------------------
+Eduardo não foi encontrado na lista.
+                </div>
+            </div>
+
+            <p>
+                O bloco <code>else</code> pode ser útil quando você deseja executar um código específico quando 
+                o loop completa todas as suas iterações sem ser interrompido.
+            </p>
+
+            <h2>Aplicações Práticas</h2>
+            
+            <h3>Calculadora de Média</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Calculadora de média de notas
+print("=== Calculadora de Média ===")
+print("Digite as notas (números negativos terminam a entrada)")
+
+notas = []
+while True:
+    entrada = float(input("Digite uma nota: "))
+    
+    if entrada < 0:
+        break
+        
+    if entrada > 10:
+        print("Nota inválida. Por favor, digite um valor entre 0 e 10.")
+        continue
+        
+    notas.append(entrada)
+
+if notas:  # Verifica se a lista não está vazia
+    media = sum(notas) / len(notas)
+    print(f"\nForam inseridas {len(notas)} notas.")
+    print(f"A média das notas é: {media:.2f}")
+    
+    if media >= 7:
+        print("Situação: Aprovado")
+    elif media >= 5:
+        print("Situação: Recuperação")
+    else:
+        print("Situação: Reprovado")
+else:
+    print("Nenhuma nota válida foi inserida.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+=== Calculadora de Média ===
+Digite as notas (números negativos terminam a entrada)
+Digite uma nota: 7.5
+Digite uma nota: 8.0
+Digite uma nota: 6.5
+Digite uma nota: -1
+
+Foram inseridas 3 notas.
+A média das notas é: 7.33
+Situação: Aprovado
+                </div>
+            </div>
+
+            <h3>Gerador de Padrões</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Gerador de padrões com loops aninhados
+altura = int(input("Digite a altura do padrão: "))
+
+print("\nPadrão 1: Triângulo retângulo")
+for i in range(1, altura + 1):
+    print("*" * i)
+
+print("\nPadrão 2: Triângulo retângulo invertido")
+for i in range(altura, 0, -1):
+    print("*" * i)
+
+print("\nPadrão 3: Triângulo isósceles")
+for i in range(1, altura + 1):
+    # Espaços à esquerda + estrelas
+    print(" " * (altura - i) + "*" * (2 * i - 1))
+
+print("\nPadrão 4: Quadrado vazado")
+for i in range(1, altura + 1):
+    if i == 1 or i == altura:
+        # Primeira e última linha: totalmente preenchidas
+        print("*" * altura)
+    else:
+        # Linhas do meio: apenas bordas
+        print("*" + " " * (altura - 2) + "*")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Digite a altura do padrão: 5
+
+Padrão 1: Triângulo retângulo
+*
+**
+***
+****
+*****
+
+Padrão 2: Triângulo retângulo invertido
+*****
+****
+***
+**
+*
+
+Padrão 3: Triângulo isósceles
+    *
+   ***
+  *****
+ *******
+*********
+
+Padrão 4: Quadrado vazado
+*****
+*   *
+*   *
+*   *
+*****
+                </div>
+            </div>
+
+            <h2>Resumo</h2>
+            
+            <ul>
+                <li><strong>Loop for</strong>: Usado para iterar sobre sequências (listas, strings, dicionários, etc.) ou ranges
+                    <ul>
+                        <li>Sintaxe: <code>for elemento in sequencia:</code></li>
+                    </ul>
+                </li>
+                <li><strong>Loop while</strong>: Executa enquanto uma condição for verdadeira
+                    <ul>
+                        <li>Sintaxe: <code>while condição:</code></li>
+                    </ul>
+                </li>
+                <li><strong>range()</strong>: Função para gerar sequências numéricas
+                    <ul>
+                        <li><code>range(stop)</code>: Números de 0 até stop-1</li>
+                        <li><code>range(start, stop)</code>: Números de start até stop-1</li>
+                        <li><code>range(start, stop, step)</code>: Números de start até stop-1 com incremento step</li>
+                    </ul>
+                </li>
+                <li><strong>break</strong>: Interrompe o loop completamente</li>
+                <li><strong>continue</strong>: Pula para a próxima iteração do loop</li>
+                <li><strong>else</strong> com loops: Executado quando o loop termina normalmente (sem break)</li>
+                <li><strong>Loops aninhados</strong>: Loops dentro de outros loops para trabalhar com estruturas de dados multidimensionais</li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dicas de Boas Práticas
+                </div>
+                <p>
+                    Ao trabalhar com estruturas de repetição:
+                </p>
+                <ul>
+                    <li>Prefira usar <code>for</code> quando souber o número de iterações</li>
+                    <li>Use <code>while</code> quando não souber quantas iterações serão necessárias</li>
+                    <li>Evite loops aninhados muito profundos (no máximo 2-3 níveis)</li>
+                    <li>Tenha cuidado com loops infinitos (sempre garanta que a condição de saída será atendida)</li>
+                    <li>Use <code>break</code> e <code>continue</code> com moderação para manter o código legível</li>
+                </ul>
+            </div>
+
+            <h2>Exercícios</h2>
+            
+            <ol>
+                <li>Escreva um programa que calcule a soma dos números de 1 a 100 usando um loop <code>for</code> e a função <code>range()</code>.</li>
+                <li>Crie um programa que peça ao usuário para adivinhar um número entre 1 e 100. O programa deve dizer se o palpite está alto, baixo ou correto, e continuar pedindo até que o usuário acerte.</li>
+                <li>Escreva um programa que percorra uma lista de números e crie duas novas listas: uma contendo apenas números pares e outra apenas números ímpares.</li>
+            </ol>
+            
+            <div class="navigation-buttons">
+                <a href="modulo4-1.html" class="nav-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Anterior: 4.1 Estruturas Condicionais
+                </a>
+                <a href="modulo4-3.html" class="nav-btn next-btn">
+                    Próximo: 4.3 Compreensões de Listas <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

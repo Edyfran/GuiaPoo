@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.2 Dicionários - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+                
+                <!-- Módulo 4 -->
+                <div class="module-title">
+                    Módulo 4 - Estruturas de Controle
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo4-1.html">4.1 Estruturas condicionais (if-else)</a>
+                    <a href="modulo4-2.html">4.2 Laços de repetição (for)</a>
+                    <a href="modulo4-3.html">4.3 Laços de repetição (while)</a>
+                </div>
+                
+                <!-- Módulo 5 -->
+                <div class="module-title">
+                    Módulo 5 - Estruturas de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo5-1.html">5.1 Listas, Tuplas e Conjuntos</a>
+                    <a href="modulo5-2.html">5.2 Dicionários</a>
+                    <a href="modulo5-3.html">5.3 Manipulação Avançada de Strings</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>5.2 Dicionários em Python</h1>
+            </div>
+            
+            <p>
+                Dicionários são estruturas de dados extremamente versáteis em Python que armazenam pares de 
+                chave-valor. Diferente das listas que usam índices numéricos, dicionários permitem usar quase
+                qualquer tipo de dado imutável como chave (strings, números, tuplas), dando acesso rápido aos 
+                valores associados.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>Como criar e manipular dicionários</li>
+                    <li>Como acessar, adicionar e remover elementos</li>
+                    <li>Métodos comuns de dicionários</li>
+                    <li>Como iterar sobre dicionários</li>
+                    <li>Aplicações práticas de dicionários</li>
+                </ul>
+            </div>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia
+                </div>
+                <p>
+                    Pense em um dicionário Python como um dicionário de idiomas real ou uma agenda telefônica.
+                    Quando você quer encontrar o significado de uma palavra, você procura pela palavra (a chave)
+                    e obtém sua definição (o valor). Similarmente, em uma agenda telefônica, você procura pelo
+                    nome de uma pessoa (chave) para encontrar seu número de telefone (valor).
+                </p>
+            </div>
+
+            <h2>Criando Dicionários</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando um dicionário com pares chave-valor
+pessoa = {
+    "nome": "Ana",
+    "idade": 28,
+    "profissão": "Engenheira",
+    "cidade": "São Paulo"
+}
+print(pessoa)
+
+# Dicionário vazio
+vazio = {}
+print(vazio)
+
+# Dicionário com diferentes tipos de dados
+misturado = {
+    "string": "texto",
+    10: "número como chave",
+    2.5: "float como chave",
+    (1, 2): "tupla como chave",
+    True: "booleano como chave"
+}
+print(misturado)
+
+# Criando com dict()
+outro_dict = dict(nome="Carlos", idade=35, cidade="Rio de Janeiro")
+print(outro_dict)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+{'nome': 'Ana', 'idade': 28, 'profissão': 'Engenheira', 'cidade': 'São Paulo'}
+{}
+{'string': 'texto', 10: 'número como chave', 2.5: 'float como chave', (1, 2): 'tupla como chave', True: 'booleano como chave'}
+{'nome': 'Carlos', 'idade': 35, 'cidade': 'Rio de Janeiro'}
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Importante
+                </div>
+                <p>
+                    Apenas objetos imutáveis podem ser usados como chaves em dicionários. Isso significa que 
+                    você pode usar strings, números e tuplas (desde que contenham apenas objetos imutáveis), 
+                    mas não pode usar listas, conjuntos ou outros dicionários como chaves.
+                </p>
+            </div>
+
+            <h2>Acessando e Modificando Valores</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">pessoa = {
+    "nome": "Ana",
+    "idade": 28,
+    "profissão": "Engenheira",
+    "cidade": "São Paulo"
+}
+
+# Acessando valores
+print("Nome:", pessoa["nome"])
+print("Idade:", pessoa["idade"])
+
+# Modificando valores
+pessoa["idade"] = 29
+print("Idade atualizada:", pessoa["idade"])
+
+# Adicionando novos pares chave-valor
+pessoa["email"] = "ana@exemplo.com"
+print("Dicionário atualizado:", pessoa)
+
+# Removendo um par chave-valor
+del pessoa["cidade"]
+print("Após remover cidade:", pessoa)
+
+# Verificando se uma chave existe
+if "nome" in pessoa:
+    print("A chave 'nome' existe no dicionário")
+    
+if "endereço" not in pessoa:
+    print("A chave 'endereço' não existe no dicionário")
+
+# Tentando acessar uma chave que não existe (causaria erro KeyError)
+# print(pessoa["telefone"])  # KeyError: 'telefone'
+
+# Método seguro para acessar: get() - retorna None ou um valor padrão se a chave não existir
+print("Telefone:", pessoa.get("telefone"))  # Retorna None
+print("Telefone:", pessoa.get("telefone", "Não informado"))  # Retorna "Não informado"</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Nome: Ana
+Idade: 28
+Idade atualizada: 29
+Dicionário atualizado: {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'cidade': 'São Paulo', 'email': 'ana@exemplo.com'}
+Após remover cidade: {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'email': 'ana@exemplo.com'}
+A chave 'nome' existe no dicionário
+A chave 'endereço' não existe no dicionário
+Telefone: None
+Telefone: Não informado
+                </div>
+            </div>
+
+            <h2>Métodos de Dicionários</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">pessoa = {
+    "nome": "Ana",
+    "idade": 29,
+    "profissão": "Engenheira",
+    "email": "ana@exemplo.com"
+}
+
+# Obtendo todas as chaves
+chaves = pessoa.keys()
+print("Chaves:", list(chaves))
+
+# Obtendo todos os valores
+valores = pessoa.values()
+print("Valores:", list(valores))
+
+# Obtendo todos os pares chave-valor como tuplas
+itens = pessoa.items()
+print("Itens:", list(itens))
+
+# Copiando um dicionário
+pessoa_copia = pessoa.copy()
+print("Cópia:", pessoa_copia)
+
+# Limpando um dicionário
+pessoa_copia.clear()
+print("Após clear():", pessoa_copia)
+
+# Atualizando o dicionário com outro
+novos_dados = {"telefone": "123-456-789", "cidade": "São Paulo"}
+pessoa.update(novos_dados)
+print("Após update():", pessoa)
+
+# Removendo e retornando um valor
+email = pessoa.pop("email")
+print(f"Email removido: {email}")
+print("Após pop():", pessoa)
+
+# Removendo e retornando o último par inserido (antes do Python 3.7 era aleatório)
+ultimo_item = pessoa.popitem()
+print(f"Último item removido: {ultimo_item}")
+print("Após popitem():", pessoa)
+
+# Obtendo valor, com um padrão se a chave não existir
+site = pessoa.setdefault("site", "www.exemplo.com")
+print("Site:", site)
+print("Após setdefault():", pessoa)  # A chave foi adicionada com o valor padrão</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Chaves: ['nome', 'idade', 'profissão', 'email']
+Valores: ['Ana', 29, 'Engenheira', 'ana@exemplo.com']
+Itens: [('nome', 'Ana'), ('idade', 29), ('profissão', 'Engenheira'), ('email', 'ana@exemplo.com')]
+Cópia: {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'email': 'ana@exemplo.com'}
+Após clear(): {}
+Após update(): {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'email': 'ana@exemplo.com', 'telefone': '123-456-789', 'cidade': 'São Paulo'}
+Email removido: ana@exemplo.com
+Após pop(): {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'telefone': '123-456-789', 'cidade': 'São Paulo'}
+Último item removido: ('cidade', 'São Paulo')
+Após popitem(): {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'telefone': '123-456-789'}
+Site: www.exemplo.com
+Após setdefault(): {'nome': 'Ana', 'idade': 29, 'profissão': 'Engenheira', 'telefone': '123-456-789', 'site': 'www.exemplo.com'}
+                </div>
+            </div>
+
+            <h2>Iterando sobre Dicionários</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">pessoa = {
+    "nome": "Ana",
+    "idade": 29,
+    "profissão": "Engenheira",
+    "telefone": "123-456-789"
+}
+
+# Iterando sobre as chaves (padrão)
+print("Iterando sobre as chaves:")
+for chave in pessoa:
+    print(chave)
+
+# Iterando sobre as chaves (explícito)
+print("\nIterando sobre as chaves explicitamente:")
+for chave in pessoa.keys():
+    print(chave)
+
+# Iterando sobre os valores
+print("\nIterando sobre os valores:")
+for valor in pessoa.values():
+    print(valor)
+
+# Iterando sobre pares chave-valor
+print("\nIterando sobre chave-valor:")
+for chave, valor in pessoa.items():
+    print(f"{chave}: {valor}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Iterando sobre as chaves:
+nome
+idade
+profissão
+telefone
+
+Iterando sobre as chaves explicitamente:
+nome
+idade
+profissão
+telefone
+
+Iterando sobre os valores:
+Ana
+29
+Engenheira
+123-456-789
+
+Iterando sobre chave-valor:
+nome: Ana
+idade: 29
+profissão: Engenheira
+telefone: 123-456-789
+                </div>
+            </div>
+
+            <h2>Dicionários Aninhados</h2>
+
+            <p>
+                Dicionários podem conter outros dicionários como valores, criando estruturas de dados complexas.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Dicionário aninhado
+alunos = {
+    "João": {
+        "idade": 20,
+        "curso": "Engenharia",
+        "notas": [8.5, 7.0, 9.5]
+    },
+    "Maria": {
+        "idade": 22,
+        "curso": "Medicina",
+        "notas": [9.0, 9.5, 8.0]
+    },
+    "Pedro": {
+        "idade": 19,
+        "curso": "Computação",
+        "notas": [7.5, 8.0, 8.5]
+    }
+}
+
+# Acessando informações aninhadas
+print(f"Curso de João: {alunos['João']['curso']}")
+print(f"Primeira nota de Maria: {alunos['Maria']['notas'][0]}")
+
+# Calculando média das notas de um aluno
+notas_pedro = alunos["Pedro"]["notas"]
+media = sum(notas_pedro) / len(notas_pedro)
+print(f"Média de Pedro: {media:.2f}")
+
+# Adicionando uma nova informação em um dicionário aninhado
+alunos["João"]["semestre"] = 4
+print(f"Informações atualizadas de João: {alunos['João']}")
+
+# Iterando sobre dicionários aninhados
+print("\nInformações de todos os alunos:")
+for nome, info in alunos.items():
+    media = sum(info["notas"]) / len(info["notas"])
+    print(f"{nome}: {info['curso']}, {info['idade']} anos, Média: {media:.2f}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Curso de João: Engenharia
+Primeira nota de Maria: 9.0
+Média de Pedro: 8.00
+Informações atualizadas de João: {'idade': 20, 'curso': 'Engenharia', 'notas': [8.5, 7.0, 9.5], 'semestre': 4}
+
+Informações de todos os alunos:
+João: Engenharia, 20 anos, Média: 8.33
+Maria: Medicina, 22 anos, Média: 8.83
+Pedro: Computação, 19 anos, Média: 8.00
+                </div>
+            </div>
+
+            <h2>Dicionário por Compreensão</h2>
+
+            <p>
+                Semelhante às listas por compreensão, podemos criar dicionários de forma concisa usando 
+                compreensão de dicionário.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando um dicionário de quadrados de números
+quadrados = {x: x**2 for x in range(1, 11)}
+print("Quadrados:", quadrados)
+
+# Criando um dicionário com números pares apenas
+pares = {x: x**2 for x in range(1, 11) if x % 2 == 0}
+print("Pares:", pares)
+
+# Convertendo unidades de temperatura
+celsius = {0, 10, 20, 30, 40, 50}
+fahrenheit = {c: (c * 9/5) + 32 for c in celsius}
+print("Temperatura em Fahrenheit:", fahrenheit)
+
+# Invertendo um dicionário (troca chaves por valores)
+original = {"a": 1, "b": 2, "c": 3}
+invertido = {valor: chave for chave, valor in original.items()}
+print("Original:", original)
+print("Invertido:", invertido)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Quadrados: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+Pares: {2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
+Temperatura em Fahrenheit: {0: 32.0, 10: 50.0, 20: 68.0, 30: 86.0, 40: 104.0, 50: 122.0}
+Original: {'a': 1, 'b': 2, 'c': 3}
+Invertido: {1: 'a', 2: 'b', 3: 'c'}
+                </div>
+            </div>
+
+            <h2>Aplicações Práticas de Dicionários</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplo 1: Contador de frequência de palavras
+texto = """Python é uma linguagem de programação de alto nível, interpretada, 
+de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. 
+Python é uma linguagem muito popular hoje em dia."""
+
+# Removendo pontuação e convertendo para minúsculas
+import string
+texto = texto.lower()
+for char in string.punctuation:
+    texto = texto.replace(char, '')
+
+palavras = texto.split()
+contador = {}
+
+# Contando as ocorrências de cada palavra
+for palavra in palavras:
+    if palavra in contador:
+        contador[palavra] += 1
+    else:
+        contador[palavra] = 1
+
+# Mostrando as palavras mais frequentes
+print("Frequência de palavras:")
+for palavra, freq in sorted(contador.items(), key=lambda x: x[1], reverse=True)[:5]:
+    print(f"{palavra}: {freq}")
+
+# Exemplo 2: Sistema de cadastro simples
+print("\nSistema de Cadastro")
+cadastro = {}
+
+# Adicionando usuários
+cadastro["user1"] = {
+    "nome": "Carlos Silva",
+    "email": "carlos@exemplo.com",
+    "nivel_acesso": "admin"
+}
+
+cadastro["user2"] = {
+    "nome": "Maria Souza",
+    "email": "maria@exemplo.com",
+    "nivel_acesso": "editor"
+}
+
+# Verificando acesso
+def verificar_acesso(usuario, nivel_minimo):
+    niveis = {"visitante": 0, "leitor": 1, "editor": 2, "admin": 3}
+    
+    if usuario not in cadastro:
+        return "Usuário não encontrado"
+    
+    nivel_usuario = cadastro[usuario]["nivel_acesso"]
+    if niveis[nivel_usuario] >= niveis[nivel_minimo]:
+        return "Acesso permitido"
+    else:
+        return "Acesso negado"
+
+print(f"Acesso de user1 como editor: {verificar_acesso('user1', 'editor')}")
+print(f"Acesso de user2 como admin: {verificar_acesso('user2', 'admin')}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Frequência de palavras:
+de: 7
+python: 2
+é: 2
+linguagem: 2
+uma: 2
+
+Sistema de Cadastro
+Acesso de user1 como editor: Acesso permitido
+Acesso de user2 como admin: Acesso negado
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dicas para Trabalhar com Dicionários
+                </div>
+                <ul>
+                    <li>
+                        <strong>Use o método get():</strong> Sempre que não tiver certeza se uma chave existe, 
+                        use <code>dicionario.get(chave, valor_padrao)</code> em vez de <code>dicionario[chave]</code> 
+                        para evitar erros.
+                    </li>
+                    <li>
+                        <strong>Valide a existência de chaves:</strong> Use <code>if chave in dicionario:</code> 
+                        antes de acessar valores para evitar erros.
+                    </li>
+                    <li>
+                        <strong>Considere defaultdict:</strong> Para dicionários com valores padrão, 
+                        considere usar <code>collections.defaultdict</code>.
+                    </li>
+                    <li>
+                        <strong>Chaves imutáveis:</strong> Lembre-se que apenas objetos imutáveis podem ser 
+                        usados como chaves. Se precisar usar uma lista como chave, converta-a para uma tupla primeiro.
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Exercícios Práticos</h2>
+            
+            <div class="info-box practice">
+                <div class="info-box-title">
+                    <i class="fas fa-tasks"></i>
+                    Exercícios
+                </div>
+                <ol>
+                    <li>
+                        <strong>Agenda de contatos</strong>: Crie um dicionário que represente uma agenda 
+                        de contatos, onde as chaves são os nomes das pessoas e os valores são dicionários 
+                        com informações como telefone, email e endereço.
+                    </li>
+                    <li>
+                        <strong>Estoque de loja</strong>: Implemente um sistema simples de estoque usando 
+                        dicionários, onde as chaves são os códigos dos produtos e os valores são dicionários 
+                        com informações como nome, preço e quantidade em estoque.
+                    </li>
+                    <li>
+                        <strong>Analisador de texto</strong>: Escreva um programa que conte a frequência 
+                        de cada caractere em um texto fornecido pelo usuário.
+                    </li>
+                    <li>
+                        <strong>Cadastro de alunos</strong>: Crie um programa que permita cadastrar alunos 
+                        e suas notas em diferentes disciplinas, usando dicionários aninhados.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pagination">
+                <a href="modulo5-1.html" class="prev">&laquo; 5.1 Listas, Tuplas e Conjuntos</a>
+                <a href="modulo5-3.html" class="next">5.3 Manipulação Avançada de Strings &raquo;</a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.3 Manipulação Avançada de Strings - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+                
+                <!-- Módulo 4 -->
+                <div class="module-title">
+                    Módulo 4 - Estruturas de Controle
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo4-1.html">4.1 Estruturas condicionais (if-else)</a>
+                    <a href="modulo4-2.html">4.2 Laços de repetição (for)</a>
+                    <a href="modulo4-3.html">4.3 Laços de repetição (while)</a>
+                </div>
+                
+                <!-- Módulo 5 -->
+                <div class="module-title">
+                    Módulo 5 - Estruturas de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo5-1.html">5.1 Listas, Tuplas e Conjuntos</a>
+                    <a href="modulo5-2.html">5.2 Dicionários</a>
+                    <a href="modulo5-3.html">5.3 Manipulação Avançada de Strings</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>5.3 Manipulação Avançada de Strings em Python</h1>
+            </div>
+            
+            <p>
+                Strings são um dos tipos de dados mais utilizados em Python, e a linguagem oferece uma variedade
+                impressionante de métodos e técnicas para manipulá-las. Nesta seção, vamos explorar as funcionalidades 
+                avançadas de strings que vão além das operações básicas que vimos anteriormente.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>Métodos poderosos para manipulação de strings</li>
+                    <li>Formatação avançada com f-strings e método format()</li>
+                    <li>Trabalhando com expressões regulares</li>
+                    <li>Operações com strings multilinhas</li>
+                    <li>Técnicas de processamento de texto</li>
+                </ul>
+            </div>
+
+            <h2>Métodos de String em Python</h2>
+
+            <p>
+                Python oferece uma grande variedade de métodos para manipular strings. Vamos explorar alguns dos mais úteis:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">texto = "  Python é uma linguagem de programação incrível!  "
+
+# Métodos de transformação
+print("Original:", texto)
+print("Maiúsculas:", texto.upper())
+print("Minúsculas:", texto.lower())
+print("Capitalizado:", texto.capitalize())
+print("Título:", texto.title())
+print("Sem espaços laterais:", texto.strip())
+print("Trocando palavras:", texto.replace("incrível", "fantástica"))
+
+# Métodos de busca e análise
+print("\nComprimento:", len(texto))
+print("Quantidade de 'a':", texto.count("a"))
+print("Posição de 'Python':", texto.find("Python"))
+print("Termina com '!':", texto.endswith("!"))
+print("Começa com 'Python':", texto.startswith("Python"))
+print("É alfanumérico?", texto.isalnum())
+print("É alfabético?", texto.isalpha())
+print("É numérico?", texto.isdigit())
+print("É espaço?", "    ".isspace())
+print("É maiúscula?", "PYTHON".isupper())
+print("É minúscula?", "python".islower())</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Original:   Python é uma linguagem de programação incrível!  
+Maiúsculas:   PYTHON É UMA LINGUAGEM DE PROGRAMAÇÃO INCRÍVEL!  
+Minúsculas:   python é uma linguagem de programação incrível!  
+Capitalizado:   python é uma linguagem de programação incrível!  
+Título:   Python É Uma Linguagem De Programação Incrível!  
+Sem espaços laterais: Python é uma linguagem de programação incrível!
+Trocando palavras:   Python é uma linguagem de programação fantástica!  
+
+Comprimento: 51
+Quantidade de 'a': 3
+Posição de 'Python': 2
+Termina com '!': True
+Começa com 'Python': False
+É alfanumérico? False
+É alfabético? False
+É numérico? False
+É espaço? True
+É maiúscula? True
+É minúscula? True
+                </div>
+            </div>
+
+            <h2>Dividindo e Unindo Strings</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Dividindo strings (split)
+frase = "Python é uma linguagem de programação incrível"
+palavras = frase.split()
+print("Frase dividida em palavras:", palavras)
+
+# Dividindo com um separador específico
+data = "2023-05-15"
+partes_data = data.split('-')
+print("Data dividida:", partes_data)
+print(f"Ano: {partes_data[0]}, Mês: {partes_data[1]}, Dia: {partes_data[2]}")
+
+# Limitando a quantidade de divisões
+caminho = "/usuario/documentos/arquivos/imagem.jpg"
+partes_limitadas = caminho.split('/', 2)
+print("Caminho dividido (limitado):", partes_limitadas)
+
+# Unindo strings (join)
+palavras = ["Python", "é", "incrível"]
+frase_unida = " ".join(palavras)
+print("Palavras unidas:", frase_unida)
+
+# Unindo com outros separadores
+lista_compras = ["maçãs", "bananas", "laranjas", "uvas"]
+texto_compras = ", ".join(lista_compras)
+print("Lista de compras:", texto_compras)
+
+# Quebra de linhas
+linhas = ["Linha 1", "Linha 2", "Linha 3"]
+texto_multilinhas = "\n".join(linhas)
+print("Texto com múltiplas linhas:")
+print(texto_multilinhas)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Frase dividida em palavras: ['Python', 'é', 'uma', 'linguagem', 'de', 'programação', 'incrível']
+Data dividida: ['2023', '05', '15']
+Ano: 2023, Mês: 05, Dia: 15
+Caminho dividido (limitado): ['', 'usuario', 'documentos/arquivos/imagem.jpg']
+Palavras unidas: Python é incrível
+Lista de compras: maçãs, bananas, laranjas, uvas
+Texto com múltiplas linhas:
+Linha 1
+Linha 2
+Linha 3
+                </div>
+            </div>
+
+            <h2>Formatação Avançada de Strings</h2>
+
+            <p>
+                Python oferece várias maneiras de formatar strings. Vamos explorar o método <code>format()</code> e as <code>f-strings</code>, 
+                que são formas modernas e poderosas de formatação.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando o método format()
+nome = "Maria"
+idade = 28
+profissao = "engenheira"
+
+# Formatação básica
+mensagem1 = "{} tem {} anos e é {}.".format(nome, idade, profissao)
+print(mensagem1)
+
+# Formatação com índices
+mensagem2 = "{0} tem {1} anos e é {2}. {0} trabalha como {2}.".format(nome, idade, profissao)
+print(mensagem2)
+
+# Formatação com nomes
+mensagem3 = "{nome} tem {idade} anos e é {profissao}.".format(nome=nome, idade=idade, profissao=profissao)
+print(mensagem3)
+
+# F-strings (Python 3.6+)
+mensagem4 = f"{nome} tem {idade} anos e é {profissao}."
+print(mensagem4)
+
+# Operações em f-strings
+print(f"No próximo ano, {nome} terá {idade + 1} anos.")
+
+# Formatação de números
+pi = 3.14159265359
+print(f"Pi com 2 casas decimais: {pi:.2f}")
+print(f"Pi com 4 casas decimais: {pi:.4f}")
+
+# Formatação de porcentagens
+taxa = 0.15
+print(f"Taxa de imposto: {taxa:.1%}")
+
+# Formatação com espaços e alinhamento
+for num in range(1, 11):
+    # Alinhando número à direita em campo de 2 caracteres, e resultado à direita em campo de 3
+    print(f"{num:2d} × 10 = {num * 10:3d}")
+
+# Formatação de datas
+from datetime import datetime
+hoje = datetime.now()
+print(f"Data: {hoje:%d/%m/%Y}, Hora: {hoje:%H:%M:%S}")
+
+# Formatação monetária
+valor = 1234.56
+print(f"Valor: R$ {valor:,.2f}")  # com vírgula como separador de milhares</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Maria tem 28 anos e é engenheira.
+Maria tem 28 anos e é engenheira. Maria trabalha como engenheira.
+Maria tem 28 anos e é engenheira.
+Maria tem 28 anos e é engenheira.
+No próximo ano, Maria terá 29 anos.
+Pi com 2 casas decimais: 3.14
+Pi com 4 casas decimais: 3.1416
+Taxa de imposto: 15.0%
+ 1 × 10 =  10
+ 2 × 10 =  20
+ 3 × 10 =  30
+ 4 × 10 =  40
+ 5 × 10 =  50
+ 6 × 10 =  60
+ 7 × 10 =  70
+ 8 × 10 =  80
+ 9 × 10 =  90
+10 × 10 = 100
+Data: 15/05/2023, Hora: 14:30:45
+Valor: R$ 1,234.56
+                </div>
+            </div>
+
+            <h2>Strings Multilinhas e Docstrings</h2>
+
+            <p>
+                Python suporta strings multilinhas, que são muito úteis para texto longo ou documentação.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># String multilinha com aspas triplas
+poema = """
+Navegar é preciso,
+Viver não é preciso.
+    - Fernando Pessoa
+"""
+print(poema)
+
+# Docstrings - documentam funções, classes e módulos
+def calcular_media(numeros):
+    """
+    Calcula a média aritmética de uma lista de números.
+    
+    Args:
+        numeros (list): Uma lista de números
+        
+    Returns:
+        float: A média aritmética dos números
+    """
+    return sum(numeros) / len(numeros)
+
+# Acessando a docstring
+print(calcular_media.__doc__)
+
+# String raw (r) - ignora caracteres de escape
+caminho_windows = r"C:\Users\Nome\Documents\arquivo.txt"
+print(caminho_windows)
+
+# String raw com múltiplas linhas
+regex_pattern = r"""
+    ^\d{3}    # três dígitos no início
+    -         # um hífen
+    \d{2}     # dois dígitos
+    -         # outro hífen
+    \d{4}$    # quatro dígitos no final
+"""
+print(regex_pattern)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+
+Navegar é preciso,
+Viver não é preciso.
+    - Fernando Pessoa
+
+    
+    Calcula a média aritmética de uma lista de números.
+    
+    Args:
+        numeros (list): Uma lista de números
+        
+    Returns:
+        float: A média aritmética dos números
+    
+C:\Users\Nome\Documents\arquivo.txt
+
+    ^\d{3}    # três dígitos no início
+    -         # um hífen
+    \d{2}     # dois dígitos
+    -         # outro hífen
+    \d{4}$    # quatro dígitos no final
+
+                </div>
+            </div>
+
+            <h2>Expressões Regulares para Manipulação de Strings</h2>
+
+            <p>
+                Expressões regulares (regex) são padrões utilizados para encontrar, validar ou substituir 
+                texto usando regras específicas. O módulo <code>re</code> do Python permite trabalhar com expressões regulares.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">import re
+
+texto = "Entre em contato: email@exemplo.com ou suporte@empresa.com.br"
+
+# Encontrando padrões (re.search)
+padrao = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
+resultado = re.search(padrao, texto)
+if resultado:
+    print(f"Primeiro email encontrado: {resultado.group()}")
+
+# Encontrando todos os padrões (re.findall)
+emails = re.findall(padrao, texto)
+print(f"Todos os emails: {emails}")
+
+# Substituindo com regex (re.sub)
+texto_censurado = re.sub(padrao, "[EMAIL REMOVIDO]", texto)
+print(f"Texto censurado: {texto_censurado}")
+
+# Dividindo string com regex (re.split)
+texto2 = "nome: João; idade: 30; cidade: São Paulo"
+partes = re.split(r";\s*", texto2)
+print(f"Texto dividido: {partes}")
+
+# Validando formatos
+def validar_cep(cep):
+    padrao_cep = r"^\d{5}-\d{3}$"
+    return bool(re.match(padrao_cep, cep))
+
+print(f"CEP válido? {'12345-678'}: {validar_cep('12345-678')}")
+print(f"CEP válido? {'1234-678'}: {validar_cep('1234-678')}")
+print(f"CEP válido? {'12345678'}: {validar_cep('12345678')}")
+
+# Extraindo informações
+texto_compra = "Cliente: Ana Silva, Valor: R$ 159,90, Data: 15/05/2023"
+padrao_valor = r"R\$\s*(\d+[,.]\d+)"
+match_valor = re.search(padrao_valor, texto_compra)
+if match_valor:
+    valor = match_valor.group(1)
+    print(f"Valor extraído: R$ {valor}")
+
+# Substituição com grupos de captura
+telefone = "(11) 98765-4321"
+telefone_formatado = re.sub(r"\((\d{2})\)\s*(\d{5})-(\d{4})", r"+55 \1 \2\3", telefone)
+print(f"Telefone original: {telefone}")
+print(f"Telefone formatado: {telefone_formatado}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Primeiro email encontrado: email@exemplo.com
+Todos os emails: ['email@exemplo.com', 'suporte@empresa.com.br']
+Texto censurado: Entre em contato: [EMAIL REMOVIDO] ou [EMAIL REMOVIDO]
+Texto dividido: ['nome: João', 'idade: 30', 'cidade: São Paulo']
+CEP válido? 12345-678: True
+CEP válido? 1234-678: False
+CEP válido? 12345678: False
+Valor extraído: R$ 159,90
+Telefone original: (11) 98765-4321
+Telefone formatado: +55 11 987654321
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Cuidado com Expressões Regulares
+                </div>
+                <p>
+                    Expressões regulares são extremamente poderosas, mas podem se tornar complexas rapidamente. 
+                    Alguns pontos importantes:
+                </p>
+                <ul>
+                    <li>Para operações simples, métodos de string como <code>find()</code>, <code>replace()</code> e <code>split()</code> 
+                    são geralmente mais claros e eficientes</li>
+                    <li>Teste suas expressões regulares cuidadosamente, especialmente com casos limites</li>
+                    <li>Use sites como regex101.com para construir e testar expressões complexas</li>
+                    <li>Comente suas expressões regulares para explicar o que elas fazem</li>
+                </ul>
+            </div>
+
+            <h2>Processamento Avançado de Texto</h2>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Contando palavras em um texto
+texto = """
+Python é uma linguagem de programação de alto nível, interpretada, 
+de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. 
+Python é muito popular e amplamente utilizada por empresas de tecnologia.
+"""
+
+# Limpando e normalizando o texto
+import string
+texto_normalizado = texto.lower()
+for pontuacao in string.punctuation:
+    texto_normalizado = texto_normalizado.replace(pontuacao, "")
+
+# Dividindo em palavras e contando
+palavras = texto_normalizado.split()
+contagem = {}
+for palavra in palavras:
+    contagem[palavra] = contagem.get(palavra, 0) + 1
+
+# Mostrando as palavras mais frequentes
+print("Palavras mais frequentes:")
+palavras_ordenadas = sorted(contagem.items(), key=lambda x: x[1], reverse=True)
+for palavra, freq in palavras_ordenadas[:5]:
+    print(f"  {palavra}: {freq} vezes")
+
+# Verificando palíndromos
+def e_palindromo(texto):
+    # Remove espaços e converte para minúsculas
+    texto = texto.lower().replace(" ", "")
+    # Compara o texto com sua versão invertida
+    return texto == texto[::-1]
+
+print("\nVerificação de palíndromos:")
+print("'radar':", e_palindromo("radar"))
+print("'Python':", e_palindromo("Python"))
+print("'Socorram me subi no onibus em Marrocos':", 
+      e_palindromo("Socorram me subi no onibus em Marrocos"))
+
+# Capitalizando nomes próprios
+nomes = "joão da silva, maria oliveira, pedro alves"
+nomes_capitalizados = nomes.title()
+print(f"\nNomes capitalizados: {nomes_capitalizados}")
+
+# Substituições múltiplas com dicionário
+def substituir_varios(texto, substituicoes):
+    for antigo, novo in substituicoes.items():
+        texto = texto.replace(antigo, novo)
+    return texto
+
+codigo = "x + y * z / 2"
+substituicoes = {
+    "x": "10",
+    "y": "5",
+    "z": "2"
+}
+codigo_substituido = substituir_varios(codigo, substituicoes)
+print(f"\nCódigo original: {codigo}")
+print(f"Código substituído: {codigo_substituido}")
+print(f"Resultado: {eval(codigo_substituido)}")  # Avaliando a expressão</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Palavras mais frequentes:
+  de: 5 vezes
+  python: 2 vezes
+  é: 2 vezes
+  uma: 2 vezes
+  e: 2 vezes
+
+Verificação de palíndromos:
+'radar': True
+'Python': False
+'Socorram me subi no onibus em Marrocos': True
+
+Nomes capitalizados: João Da Silva, Maria Oliveira, Pedro Alves
+
+Código original: x + y * z / 2
+Código substituído: 10 + 5 * 2 / 2
+Resultado: 15.0
+                </div>
+            </div>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia
+                </div>
+                <p>
+                    Trabalhar com strings em Python é como ser um editor de texto com superpoderes. 
+                    Você pode procurar por termos específicos (como a função "Localizar"), substituir 
+                    texto (como "Localizar e substituir"), cortar e colar partes do texto (como dividir 
+                    e unir strings), e até mesmo aplicar formatação avançada (como mudar texto para 
+                    maiúsculas ou minúsculas). As expressões regulares adicionam outro nível de poder, 
+                    como ter um assistente que pode encontrar padrões complexos que seriam impossíveis 
+                    de localizar manualmente.
+                </p>
+            </div>
+
+            <h2>Bibliotecas de Terceiros para Processamento de Texto</h2>
+
+            <p>
+                Para processamento de texto mais avançado, você pode usar bibliotecas como:
+            </p>
+
+            <ul>
+                <li><strong>NLTK (Natural Language Toolkit)</strong>: Para processamento de linguagem natural</li>
+                <li><strong>TextBlob</strong>: Uma API simplificada para processamento de texto</li>
+                <li><strong>SpaCy</strong>: Uma biblioteca moderna para processamento rápido de linguagem natural</li>
+            </ul>
+
+            <p>
+                Exemplo de instalação (em um ambiente virtual ou sistema):
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Terminal</div>
+                <div class="code-content">
+                    <pre><code class="bash">pip install nltk textblob spacy</code></pre>
+                </div>
+            </div>
+
+            <h2>Exercícios Práticos</h2>
+            
+            <div class="info-box practice">
+                <div class="info-box-title">
+                    <i class="fas fa-tasks"></i>
+                    Exercícios
+                </div>
+                <ol>
+                    <li>
+                        <strong>Validador de senhas</strong>: Crie uma função que verifica se uma senha atende aos seguintes critérios: 
+                        pelo menos 8 caracteres, contém letras maiúsculas e minúsculas, números e pelo menos um caractere especial.
+                    </li>
+                    <li>
+                        <strong>Formatador de CPF</strong>: Escreva uma função que formata um número de CPF, adicionando pontos e
+                        traço no formato XXX.XXX.XXX-XX.
+                    </li>
+                    <li>
+                        <strong>Extrator de hashtags</strong>: Crie uma função que extrai todas as hashtags (#palavra) de um texto, 
+                        como uma publicação de rede social.
+                    </li>
+                    <li>
+                        <strong>Conversor de Camel Case para Snake Case</strong>: Escreva uma função que converte texto em CamelCase 
+                        (como "minhaVariavel") para snake_case (como "minha_variavel").
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pagination">
+                <a href="modulo5-2.html" class="prev">&laquo; 5.2 Dicionários</a>
+                <a href="#" class="next">Próximo Módulo &raquo;</a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

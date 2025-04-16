@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3 Compreensões de Listas - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+
+                <!-- Módulo 4 -->
+                <div class="module-title">
+                    Módulo 4 - Estruturas de Controle
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo4-1.html">4.1 Estruturas Condicionais</a>
+                    <a href="modulo4-2.html">4.2 Estruturas de Repetição</a>
+                    <a href="modulo4-3.html">4.3 Compreensões de Listas</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>4.3 Compreensões de Listas e Expressões Geradoras</h1>
+            </div>
+            
+            <p>
+                Uma das características mais elegantes e poderosas do Python é a capacidade de criar 
+                coleções de forma concisa usando <strong>compreensões de listas</strong> (list comprehensions) 
+                e <strong>expressões geradoras</strong>. Estas construções permitem transformar, filtrar 
+                e criar coleções em uma única linha, tornando o código mais legível e eficiente.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>O que são compreensões de listas e como usá-las</li>
+                    <li>Como adicionar condicionais às suas compreensões</li>
+                    <li>Como criar compreensões aninhadas e mais complexas</li>
+                    <li>Compreensões para dicionários e conjuntos</li>
+                    <li>Expressões geradoras e quando usá-las</li>
+                    <li>Vantagens e desvantagens destas técnicas</li>
+                </ul>
+            </div>
+
+            <h2>Introdução às Compreensões de Listas</h2>
+            
+            <p>
+                Uma compreensão de lista é uma forma concisa de criar listas baseadas em listas 
+                ou iteráveis existentes. Ela usa uma sintaxe específica, dentro de colchetes, que 
+                combina um <code>for</code> e, opcionalmente, um ou mais <code>if</code> para 
+                definir elementos a serem incluídos na nova lista.
+            </p>
+
+            <p>
+                Para entender melhor, vamos comparar a forma tradicional de criar uma lista com 
+                a compreensão de lista:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Forma tradicional usando loop for
+quadrados = []
+for x in range(1, 11):
+    quadrados.append(x ** 2)
+print("Usando loop for:", quadrados)
+
+# Equivalente usando compreensão de lista
+quadrados = [x ** 2 for x in range(1, 11)]
+print("Usando compreensão:", quadrados)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Usando loop for: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+Usando compreensão: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+                </div>
+            </div>
+
+            <p>
+                Como você pode ver, a compreensão de lista produz o mesmo resultado, mas de forma 
+                mais concisa. A sintaxe básica é:
+            </p>
+
+            <pre><code class="python">[expressão for item in iterável]</code></pre>
+
+            <p>
+                Onde:
+            </p>
+            <ul>
+                <li><code>expressão</code> é o valor que será incluído na nova lista (pode ser o próprio item ou alguma operação sobre ele)</li>
+                <li><code>item</code> é a variável que representa cada elemento do iterável</li>
+                <li><code>iterável</code> é a coleção de elementos que estamos percorrendo</li>
+            </ul>
+
+            <h2>Exemplos de Compreensões de Listas</h2>
+            
+            <p>
+                Vamos explorar mais exemplos de como usar compreensões de listas:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># 1. Converter temperaturas de Celsius para Fahrenheit
+celsius = [0, 10, 20, 30, 40, 50]
+fahrenheit = [(9/5) * c + 32 for c in celsius]
+print("Celsius:", celsius)
+print("Fahrenheit:", fahrenheit)
+
+# 2. Criar uma lista de caracteres de uma string
+palavra = "Python"
+letras = [letra for letra in palavra]
+print("Letras de Python:", letras)
+
+# 3. Criar uma lista com o comprimento de cada palavra
+frases = ["Python é incrível", "Compreensões são poderosas", "Código limpo"]
+comprimentos = [len(frase) for frase in frases]
+print("Comprimento das frases:", comprimentos)
+
+# 4. Duplicar elementos de uma lista
+numeros = [1, 2, 3, 4, 5]
+duplicados = [n * 2 for n in numeros]
+print("Números duplicados:", duplicados)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Celsius: [0, 10, 20, 30, 40, 50]
+Fahrenheit: [32.0, 50.0, 68.0, 86.0, 104.0, 122.0]
+Letras de Python: ['P', 'y', 't', 'h', 'o', 'n']
+Comprimento das frases: [17, 24, 12]
+Números duplicados: [2, 4, 6, 8, 10]
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica
+                </div>
+                <p>
+                    As compreensões de listas são mais legíveis e geralmente mais rápidas que loops 
+                    equivalentes, especialmente para operações simples. No entanto, para transformações 
+                    muito complexas, um loop regular pode ser mais claro.
+                </p>
+            </div>
+
+            <h2>Compreensões de Listas com Condicionais</h2>
+            
+            <p>
+                Podemos adicionar condicionais às compreensões de listas para filtrar elementos. Existem duas formas 
+                de incluir condicionais:
+            </p>
+
+            <h3>1. Filtro após o loop (mais comum)</h3>
+
+            <pre><code class="python">[expressão for item in iterável if condição]</code></pre>
+
+            <h3>2. Condição na expressão (usando operador ternário)</h3>
+
+            <pre><code class="python">[expressão_if_verdadeiro if condição else expressão_if_falso for item in iterável]</code></pre>
+
+            <p>Vamos ver exemplos de ambas as abordagens:</p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># 1. Filtrar números pares
+numeros = list(range(1, 11))
+pares = [num for num in numeros if num % 2 == 0]
+print("Números:", numeros)
+print("Apenas pares:", pares)
+
+# 2. Filtrar palavras com mais de 4 letras
+palavras = ["casa", "computador", "sol", "Python", "livro", "ar"]
+palavras_longas = [palavra for palavra in palavras if len(palavra) > 4]
+print("Palavras longas:", palavras_longas)
+
+# 3. Usando condicionais na expressão (operador ternário)
+# Substituindo vogais por '*' e mantendo consoantes
+texto = "Python é incrível"
+resultado = ["*" if c.lower() in "aeiou" else c for c in texto]
+print("Original:", texto)
+print("Modificado:", "".join(resultado))  # Convertendo lista de volta para string
+
+# 4. Classificar números como "par" ou "ímpar"
+numeros = list(range(1, 6))
+classificacao = ["par" if n % 2 == 0 else "ímpar" for n in numeros]
+print("Números:", numeros)
+print("Classificação:", classificacao)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Números: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Apenas pares: [2, 4, 6, 8, 10]
+Palavras longas: ['computador', 'Python']
+Original: Python é incrível
+Modificado: P*th*n * *ncr*v*l
+Números: [1, 2, 3, 4, 5]
+Classificação: ['ímpar', 'par', 'ímpar', 'par', 'ímpar']
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Não confunda os dois tipos de condicionais
+                </div>
+                <p>
+                    Note a diferença entre as duas formas de uso de condicionais:
+                </p>
+                <ul>
+                    <li><code>[x for x in lista if condição]</code> - O <code>if</code> FILTRA quais elementos serão processados</li>
+                    <li><code>[valor_if if condição else valor_else for x in lista]</code> - O <code>if</code> TRANSFORMA os valores, mas todos os elementos são processados</li>
+                </ul>
+            </div>
+
+            <h2>Compreensões de Listas Aninhadas</h2>
+            
+            <p>
+                Assim como podemos ter loops aninhados, também podemos ter compreensões aninhadas. 
+                Isso é útil quando trabalhamos com estruturas de dados multidimensionais.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># 1. Criar uma matriz de multiplicação (tabuada)
+# Versão com loop aninhado
+matriz = []
+for i in range(1, 6):
+    linha = []
+    for j in range(1, 6):
+        linha.append(i * j)
+    matriz.append(linha)
+print("Matriz usando loops:")
+for linha in matriz:
+    print(linha)
+
+# Versão com compreensão aninhada
+matriz = [[i * j for j in range(1, 6)] for i in range(1, 6)]
+print("\nMatriz usando compreensão aninhada:")
+for linha in matriz:
+    print(linha)
+
+# 2. Aplanar uma matriz (converter matriz 2D em lista 1D)
+matriz_2d = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flat = [num for linha in matriz_2d for num in linha]
+print("\nMatrix original:", matriz_2d)
+print("Lista achatada:", flat)
+
+# 3. Gerar todas as combinações de duas listas
+cores = ["vermelho", "azul"]
+tamanhos = ["P", "M", "G"]
+produtos = [f"{cor}-{tamanho}" for cor in cores for tamanho in tamanhos]
+print("\nCombinações de produtos:", produtos)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Matriz usando loops:
+[1, 2, 3, 4, 5]
+[2, 4, 6, 8, 10]
+[3, 6, 9, 12, 15]
+[4, 8, 12, 16, 20]
+[5, 10, 15, 20, 25]
+
+Matriz usando compreensão aninhada:
+[1, 2, 3, 4, 5]
+[2, 4, 6, 8, 10]
+[3, 6, 9, 12, 15]
+[4, 8, 12, 16, 20]
+[5, 10, 15, 20, 25]
+
+Matrix original: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+Lista achatada: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Combinações de produtos: ['vermelho-P', 'vermelho-M', 'vermelho-G', 'azul-P', 'azul-M', 'azul-G']
+                </div>
+            </div>
+
+            <p>
+                Nas compreensões aninhadas, a ordem dos loops <code>for</code> é a mesma que seria 
+                em loops tradicionais aninhados - o loop mais à esquerda corresponde ao loop mais externo.
+            </p>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica de legibilidade
+                </div>
+                <p>
+                    Compreensões aninhadas podem ser poderosas, mas também podem se tornar confusas 
+                    quando muito complexas. Se a compreensão se tornar difícil de entender à primeira 
+                    vista, considere dividir o código em partes mais simples ou usar loops tradicionais.
+                </p>
+            </div>
+
+            <h2>Compreensões para Dicionários e Conjuntos</h2>
+            
+            <p>
+                Além de listas, Python permite criar compreensões para dicionários e conjuntos. 
+                A sintaxe é similar, mas usa <code>{}</code> em vez de <code>[]</code>.
+            </p>
+
+            <h3>Compreensão de Dicionário</h3>
+            
+            <pre><code class="python">{chave: valor for item in iterável}</code></pre>
+
+            <h3>Compreensão de Conjunto</h3>
+            
+            <pre><code class="python">{expressão for item in iterável}</code></pre>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplos de compreensão de dicionário
+
+# 1. Criar um dicionário que mapeia números aos seus quadrados
+quadrados = {x: x**2 for x in range(1, 6)}
+print("Dicionário de quadrados:", quadrados)
+
+# 2. Criar um dicionário que mapeia palavras às suas quantidades de letras
+palavras = ["Python", "é", "uma", "linguagem", "poderosa"]
+comprimentos = {palavra: len(palavra) for palavra in palavras}
+print("Comprimentos das palavras:", comprimentos)
+
+# 3. Filtrar pares chave-valor em um dicionário existente
+precos = {"maçã": 2.5, "banana": 1.8, "laranja": 3.0, "abacaxi": 5.5, "kiwi": 4.0}
+baratos = {fruta: preco for fruta, preco in precos.items() if preco < 3.0}
+print("Frutas baratas:", baratos)
+
+# Exemplos de compreensão de conjunto
+
+# 4. Criar um conjunto de quadrados
+quadrados_set = {x**2 for x in range(1, 11)}
+print("Conjunto de quadrados:", quadrados_set)
+
+# 5. Extrair caracteres únicos de uma string
+texto = "mississippi"
+letras_unicas = {letra for letra in texto}
+print("Letras únicas em 'mississippi':", letras_unicas)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Dicionário de quadrados: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+Comprimentos das palavras: {'Python': 6, 'é': 1, 'uma': 3, 'linguagem': 9, 'poderosa': 8}
+Frutas baratas: {'maçã': 2.5, 'banana': 1.8}
+Conjunto de quadrados: {64, 1, 4, 36, 100, 9, 16, 49, 81, 25}
+Letras únicas em 'mississippi': {'p', 's', 'i', 'm'}
+                </div>
+            </div>
+
+            <p>
+                Note que nas compreensões de conjuntos, os elementos duplicados são automaticamente 
+                removidos (por isso o conjunto de letras únicas contém apenas cada letra uma vez).
+            </p>
+
+            <h2>Expressões Geradoras</h2>
+            
+            <p>
+                As expressões geradoras são semelhantes às compreensões de listas, mas não criam 
+                imediatamente a lista completa na memória. Em vez disso, geram valores sob demanda, 
+                economizando memória quando trabalhamos com grandes conjuntos de dados.
+            </p>
+
+            <p>
+                A sintaxe é quase idêntica à compreensão de lista, mas usa parênteses <code>()</code> 
+                em vez de colchetes <code>[]</code>.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Comparando compreensão de lista com expressão geradora
+
+# Compreensão de lista - cria toda a lista na memória
+lista_quadrados = [x**2 for x in range(1, 6)]
+print("Lista completa:", lista_quadrados)
+
+# Expressão geradora - gera valores sob demanda
+gerador_quadrados = (x**2 for x in range(1, 6))
+print("Objeto gerador:", gerador_quadrados)
+
+# Para ver os valores, precisamos iterar sobre o gerador
+print("Valores do gerador:", end=" ")
+for valor in gerador_quadrados:
+    print(valor, end=" ")
+print()  # Nova linha
+
+# Um gerador é consumido após a iteração
+print("Tentando iterar novamente:", list(gerador_quadrados))
+
+# Criando um novo gerador
+gerador_quadrados = (x**2 for x in range(1, 6))
+
+# Podemos usar geradores diretamente em funções que consomem iteráveis
+print("Soma dos quadrados:", sum(gerador_quadrados))
+
+# Exemplo com números grandes para mostrar a vantagem de memória
+import sys
+
+# Tamanho de uma compreensão de lista dos quadrados de 0 a 999.999
+lista_grande = [x**2 for x in range(1000000)]
+print(f"Tamanho da lista: {sys.getsizeof(lista_grande) / (1024 * 1024):.2f} MB")
+
+# Tamanho de uma expressão geradora equivalente
+gerador_grande = (x**2 for x in range(1000000))
+print(f"Tamanho do gerador: {sys.getsizeof(gerador_grande) / 1024:.2f} KB")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Lista completa: [1, 4, 9, 16, 25]
+Objeto gerador: <generator object <genexpr> at 0x7f9e8d3e7cf0>
+Valores do gerador: 1 4 9 16 25 
+Tentando iterar novamente: []
+Soma dos quadrados: 55
+Tamanho da lista: 8.39 MB
+Tamanho do gerador: 0.11 KB
+                </div>
+            </div>
+
+            <h3>Quando usar expressões geradoras vs. compreensões de listas</h3>
+            
+            <table>
+                <tr>
+                    <th>Use expressões geradoras quando:</th>
+                    <th>Use compreensões de listas quando:</th>
+                </tr>
+                <tr>
+                    <td>Estiver trabalhando com conjuntos muito grandes de dados</td>
+                    <td>Precisar acessar os elementos várias vezes</td>
+                </tr>
+                <tr>
+                    <td>Só precisar iterar sobre os dados uma vez</td>
+                    <td>Precisar indexar elementos específicos ([i])</td>
+                </tr>
+                <tr>
+                    <td>Estiver preocupado com o uso de memória</td>
+                    <td>O conjunto de dados for pequeno a médio</td>
+                </tr>
+                <tr>
+                    <td>Estiver passando dados para funções que consomem iteráveis (como sum(), max(), etc.)</td>
+                    <td>Precisar dos dados disponíveis imediatamente</td>
+                </tr>
+            </table>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Economia de memória
+                </div>
+                <p>
+                    Como você pode ver no exemplo anterior, um gerador para um milhão de elementos consome 
+                    muito menos memória do que uma lista equivalente. Isso faz com que geradores sejam 
+                    extremamente úteis ao processar grandes volumes de dados ou arquivos.
+                </p>
+            </div>
+
+            <h2>Casos de Uso Práticos</h2>
+            
+            <p>
+                Vamos ver alguns exemplos práticos de como as compreensões e geradores podem ser usados 
+                em situações do mundo real:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Casos de uso prático para compreensões e geradores
+
+# 1. Processamento de dados - Filtrar e transformar registros
+registros = [
+    {"nome": "Ana", "idade": 28, "cidade": "São Paulo"},
+    {"nome": "Bruno", "idade": 17, "cidade": "Rio de Janeiro"},
+    {"nome": "Carla", "idade": 32, "cidade": "Belo Horizonte"},
+    {"nome": "Daniel", "idade": 15, "cidade": "São Paulo"},
+    {"nome": "Elena", "idade": 45, "cidade": "Salvador"}
+]
+
+# Filtrar adultos (idade >= 18)
+adultos = [pessoa for pessoa in registros if pessoa["idade"] >= 18]
+print("Adultos:", [(p["nome"], p["idade"]) for p in adultos])
+
+# Pessoas de São Paulo
+paulistas = [pessoa["nome"] for pessoa in registros if pessoa["cidade"] == "São Paulo"]
+print("Pessoas de São Paulo:", paulistas)
+
+# 2. Extração de dados - Selecionar colunas específicas
+nomes_e_idades = [{p["nome"]: p["idade"]} for p in registros]
+print("Mapeamento nome:idade:", nomes_e_idades)
+
+# 3. Tratamento de texto - Extrair palavras únicas de um texto (ignorando maiúsculas/minúsculas)
+texto = "Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Python é uma linguagem muito popular."
+palavras = texto.lower().replace(",", "").replace(".", "").split()
+palavras_unicas = sorted({palavra for palavra in palavras})
+print("\nPalavras únicas:", palavras_unicas)
+
+# 4. Transformações de dados - Agrupar itens por categoria
+produtos = [
+    {"nome": "Maçã", "categoria": "Fruta", "preço": 2.5},
+    {"nome": "Cenoura", "categoria": "Legume", "preço": 1.8},
+    {"nome": "Banana", "categoria": "Fruta", "preço": 3.2},
+    {"nome": "Batata", "categoria": "Legume", "preço": 4.0},
+    {"nome": "Laranja", "categoria": "Fruta", "preço": 2.7}
+]
+
+# Dicionário de produtos por categoria
+por_categoria = {
+    categoria: [p["nome"] for p in produtos if p["categoria"] == categoria]
+    for categoria in {p["categoria"] for p in produtos}
+}
+print("\nProdutos por categoria:", por_categoria)
+
+# 5. Usar expressão geradora com sum() para calcular o preço total
+preco_total = sum(p["preço"] for p in produtos)
+print(f"Preço total dos produtos: R$ {preco_total:.2f}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Adultos: [('Ana', 28), ('Carla', 32), ('Elena', 45)]
+Pessoas de São Paulo: ['Ana', 'Daniel']
+Mapeamento nome:idade: [{'Ana': 28}, {'Bruno': 17}, {'Carla': 32}, {'Daniel': 15}, {'Elena': 45}]
+
+Palavras únicas: ['a', 'alto', 'de', 'dinâmica', 'e', 'forte', 'funcional', 'imperativa', 'interpretada', 'language', 'linguagem', 'muito', 'nível', 'objetos', 'orientada', 'popular', 'programação', 'python', 'script', 'tipagem', 'uma']
+
+Produtos por categoria: {'Fruta': ['Maçã', 'Banana', 'Laranja'], 'Legume': ['Cenoura', 'Batata']}
+Preço total dos produtos: R$ 14.20
+                </div>
+            </div>
+
+            <h2>Vantagens e Desvantagens</h2>
+            
+            <h3>Vantagens</h3>
+            <ul>
+                <li><strong>Concisão</strong>: Reduz várias linhas de código em uma única linha</li>
+                <li><strong>Legibilidade</strong>: Torna a intenção do código mais clara para operações simples</li>
+                <li><strong>Desempenho</strong>: Geralmente mais rápido que loops equivalentes para operações simples</li>
+                <li><strong>Elegância</strong>: É considerada uma forma "pythoníca" de escrever código</li>
+                <li><strong>Economia de memória</strong>: Expressões geradoras consomem menos memória que listas completas</li>
+            </ul>
+
+            <h3>Desvantagens</h3>
+            <ul>
+                <li><strong>Legibilidade afetada</strong>: Compreensões complexas podem ser difíceis de entender</li>
+                <li><strong>Depuração</strong>: Pode ser mais difícil de depurar do que loops explícitos</li>
+                <li><strong>Excesso de uso</strong>: Forçar todas as operações em compreensões pode tornar o código menos claro</li>
+                <li><strong>Reutilização limitada</strong>: Não é ideal para lógica que precisa ser reutilizada em vários lugares</li>
+            </ul>
+
+            <h2>Resumo</h2>
+            
+            <ul>
+                <li><strong>Compreensão de lista</strong>: <code>[expressão for item in iterável if condição]</code>
+                    <ul>
+                        <li>Cria uma lista completa na memória</li>
+                        <li>Útil quando você precisa acessar os elementos múltiplas vezes</li>
+                    </ul>
+                </li>
+                <li><strong>Compreensão de dicionário</strong>: <code>{chave: valor for item in iterável if condição}</code>
+                    <ul>
+                        <li>Cria um dicionário completo na memória</li>
+                        <li>Útil para transformar dados em mapas chave-valor</li>
+                    </ul>
+                </li>
+                <li><strong>Compreensão de conjunto</strong>: <code>{expressão for item in iterável if condição}</code>
+                    <ul>
+                        <li>Cria um conjunto (elementos únicos) na memória</li>
+                        <li>Útil para eliminar duplicatas durante a transformação</li>
+                    </ul>
+                </li>
+                <li><strong>Expressão geradora</strong>: <code>(expressão for item in iterável if condição)</code>
+                    <ul>
+                        <li>Cria um gerador que produz valores sob demanda</li>
+                        <li>Mais eficiente em termos de memória para grandes conjuntos de dados</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica final
+                </div>
+                <p>
+                    Compreensões são uma ferramenta poderosa, mas lembre-se de que o código deve ser 
+                    legível antes de tudo. Use compreensões quando elas tornarem o código mais claro, 
+                    não apenas mais curto. Uma boa regra é: se a compreensão não cabe confortavelmente 
+                    em uma linha de 80-100 caracteres, considere usar um loop tradicional ou quebrá-la 
+                    em partes menores.
+                </p>
+            </div>
+
+            <h2>Exercícios</h2>
+            
+            <ol>
+                <li>Use uma compreensão de lista para criar uma lista com os números ímpares ao quadrado de 1 a 20.</li>
+                <li>Crie um dicionário que mapeia nomes de frutas para suas cores usando compreensão de dicionário.</li>
+                <li>Dado um arquivo de texto com uma palavra por linha, escreva uma expressão geradora e use-a para contar quantas palavras têm mais de 5 letras.</li>
+            </ol>
+            
+            <div class="navigation-buttons">
+                <a href="modulo4-2.html" class="nav-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Anterior: 4.2 Estruturas de Repetição
+                </a>
+                <a href="#" class="nav-btn next-btn">
+                    Próximo módulo <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

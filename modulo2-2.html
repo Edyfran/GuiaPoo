@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.2 Sintaxe e indentação - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>2.2 Sintaxe e Indentação em Python</h1>
+            </div>
+            
+            <p>
+                Uma das características mais distintas de Python é como o código é organizado visualmente. 
+                Diferente de muitas outras linguagens que usam chaves <code>{ }</code> ou palavras-chave como 
+                <code>begin/end</code>, Python usa <strong>indentação</strong> (espaços no início das linhas) 
+                para definir blocos de código.
+            </p>
+
+            <p>
+                Vamos entender como isso funciona e por que é tão importante para escrever código Python corretamente.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>O que é sintaxe em programação</li>
+                    <li>Como Python usa indentação para estruturar o código</li>
+                    <li>Regras básicas de sintaxe em Python</li>
+                    <li>Como evitar erros comuns de indentação</li>
+                    <li>Boas práticas para escrever código Python legível</li>
+                </ul>
+            </div>
+
+            <h2>O que é Sintaxe em Programação?</h2>
+            
+            <p>
+                Assim como os idiomas humanos têm regras gramaticais, as linguagens de programação têm 
+                <strong>sintaxe</strong> - um conjunto de regras que definem como o código deve ser escrito para 
+                ser compreendido pelo computador.
+            </p>
+
+            <p>
+                Se você não seguir corretamente a sintaxe, o programa simplesmente não funcionará - 
+                assim como uma frase com erros gramaticais graves pode se tornar incompreensível.
+            </p>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia
+                </div>
+                <p>
+                    Pense na sintaxe como as regras gramaticais de um idioma. Se você escrever 
+                    "Casa a vermelho é" em vez de "A casa é vermelha", qualquer falante de português 
+                    terá dificuldade para entender. Da mesma forma, o Python precisa que você escreva 
+                    as instruções seguindo uma determinada estrutura.
+                </p>
+            </div>
+
+            <h2>A Regra de Ouro em Python: Indentação</h2>
+            
+            <p>
+                Em Python, a <strong>indentação</strong> não é apenas uma questão de estilo - é parte fundamental da sintaxe.
+            </p>
+
+            <p>
+                A indentação refere-se aos espaços no início de uma linha de código, e em Python, ela define quais 
+                instruções pertencem a quais blocos de código.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplo de indentação em Python
+if 10 > 5:
+    print("Dez é maior que cinco")
+    print("Esta linha também faz parte do bloco 'if'")
+print("Esta linha está fora do bloco 'if'")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Dez é maior que cinco
+Esta linha também faz parte do bloco 'if'
+Esta linha está fora do bloco 'if'
+                </div>
+            </div>
+
+            <p>
+                No exemplo acima:
+            </p>
+            <ul>
+                <li>A linha <code>if 10 > 5:</code> termina com dois-pontos, indicando que um novo bloco de código está começando</li>
+                <li>As duas linhas seguintes estão <strong>indentadas</strong> (têm 4 espaços no início), indicando que pertencem ao bloco <code>if</code></li>
+                <li>A última linha não está indentada, indicando que está fora do bloco <code>if</code> e será executada independentemente da condição</li>
+            </ul>
+
+            <h2>Como a Indentação Funciona</h2>
+
+            <p>
+                Em Python, blocos de código são definidos pela quantidade de espaços no início da linha. Veja algumas regras importantes:
+            </p>
+
+            <ul>
+                <li>Todas as linhas de um mesmo bloco devem ter a <strong>mesma quantidade</strong> de espaços no início</li>
+                <li>Os blocos são identificados após linhas que terminam com <strong>dois-pontos</strong> (<code>:</code>)</li>
+                <li>Geralmente, usa-se <strong>4 espaços</strong> para cada nível de indentação (embora o Python aceite qualquer número consistente)</li>
+                <li>É possível ter <strong>blocos dentro de blocos</strong>, cada um com seu próprio nível de indentação</li>
+            </ul>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Atenção!
+                </div>
+                <p>
+                    Você pode usar espaços ou tabulações para indentação, mas <strong>não misture os dois</strong> 
+                    no mesmo arquivo. A maioria dos programadores Python usa 4 espaços, que é o padrão recomendado 
+                    pelo guia de estilo oficial (PEP 8).
+                </p>
+            </div>
+
+            <h2>Exemplos de Blocos em Python</h2>
+
+            <p>Vamos ver vários exemplos de como a indentação define blocos em diferentes estruturas:</p>
+
+            <h3>1. Blocos em estruturas condicionais (if-else)</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplo com if, elif e else
+idade = 18
+
+if idade < 13:
+    print("Criança")
+    print("Entrada gratuita")
+elif idade < 18:
+    print("Adolescente")
+    print("Meia entrada")
+else:
+    print("Adulto")
+    print("Entrada inteira")
+
+print("Verificação concluída")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Adulto
+Entrada inteira
+Verificação concluída
+                </div>
+            </div>
+
+            <p>
+                Observe como os blocos são organizados:
+            </p>
+            <ul>
+                <li>Cada condição (<code>if</code>, <code>elif</code>, <code>else</code>) tem seu próprio bloco indentado</li>
+                <li>Cada bloco pode conter múltiplas linhas indentadas no mesmo nível</li>
+                <li>A linha "Verificação concluída" está no nível de indentação original, então será executada após todo o bloco condicional</li>
+            </ul>
+
+            <h3>2. Blocos em estruturas de repetição (loops)</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplo com loop for
+frutas = ["maçã", "banana", "laranja"]
+
+print("Lista de frutas:")
+for fruta in frutas:
+    print(f"- {fruta}")
+    if fruta == "banana":
+        print("  (Esta é minha favorita!)")
+
+print("Fim da lista")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Lista de frutas:
+- maçã
+- banana
+  (Esta é minha favorita!)
+- laranja
+Fim da lista
+                </div>
+            </div>
+
+            <p>
+                Neste exemplo, podemos ver:
+            </p>
+            <ul>
+                <li>Um bloco indentado para o loop <code>for</code></li>
+                <li>Dentro desse bloco, há um bloco adicional para o <code>if</code> (com indentação dupla)</li>
+                <li>A linha "Fim da lista" não está indentada, então está fora do loop</li>
+            </ul>
+
+            <h3>3. Blocos em funções</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplo com funções
+def cumprimentar(nome):
+    mensagem = f"Olá, {nome}!"
+    print(mensagem)
+    print("Bem-vindo ao Python!")
+
+print("Iniciando programa")
+cumprimentar("Carlos")
+print("Fim do programa")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Iniciando programa
+Olá, Carlos!
+Bem-vindo ao Python!
+Fim do programa
+                </div>
+            </div>
+
+            <p>
+                Na definição da função:
+            </p>
+            <ul>
+                <li>A linha <code>def cumprimentar(nome):</code> termina com dois-pontos, iniciando um bloco</li>
+                <li>Todo o código indentado após essa linha faz parte da função</li>
+                <li>As linhas não indentadas estão fora da função</li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica de Visualização
+                </div>
+                <p>
+                    Pense na indentação como uma forma de "aninhar" código dentro de blocos maiores. 
+                    Cada nível de indentação representa um nível mais profundo na estrutura do código, 
+                    como bonecas russas, uma dentro da outra.
+                </p>
+            </div>
+
+            <h2>Erros Comuns de Indentação</h2>
+
+            <p>
+                A indentação é tão crucial em Python que erros nela podem impedir que seu código funcione. 
+                Vamos ver alguns erros comuns:
+            </p>
+
+            <h3>1. Misturar espaços e tabulações</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python - Código com erro</div>
+                <div class="code-content">
+                    <pre><code class="python"># ERRO: mistura de espaços e tabulações
+if True:
+    print("Esta linha usa 4 espaços")
+	print("Esta linha usa uma tabulação")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+  File "<stdin>", line 3
+    print("Esta linha usa uma tabulação")
+    ^
+TabError: inconsistent use of tabs and spaces in indentation
+                </div>
+            </div>
+
+            <h3>2. Indentação inconsistente</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python - Código com erro</div>
+                <div class="code-content">
+                    <pre><code class="python"># ERRO: diferentes níveis de indentação no mesmo bloco
+if True:
+    print("Esta linha usa 4 espaços")
+   print("Esta linha usa apenas 3 espaços")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+  File "<stdin>", line 3
+    print("Esta linha usa apenas 3 espaços")
+    ^
+IndentationError: unindent does not match any outer indentation level
+                </div>
+            </div>
+
+            <h3>3. Esquecimento da indentação</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python - Código com erro</div>
+                <div class="code-content">
+                    <pre><code class="python"># ERRO: ausência de indentação após dois-pontos
+if True:
+print("Faltou indentar esta linha")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+  File "<stdin>", line 2
+    print("Faltou indentar esta linha")
+    ^
+IndentationError: expected an indented block after 'if' statement on line 1
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica de Depuração
+                </div>
+                <p>
+                    Muitos editores de código modernos têm a opção de mostrar caracteres invisíveis 
+                    (como espaços e tabulações), o que pode ajudar a identificar problemas de indentação. 
+                    Alguns até convertem automaticamente tabulações em espaços para evitar inconsistências.
+                </p>
+            </div>
+
+            <h2>Outras Regras de Sintaxe em Python</h2>
+
+            <p>
+                Além da indentação, Python tem outras regras de sintaxe que são importantes conhecer:
+            </p>
+
+            <h3>1. Dois-pontos em cabeçalhos de bloco</h3>
+
+            <p>
+                Toda estrutura que inicia um bloco indentado deve terminar com dois-pontos (<code>:</code>):
+            </p>
+
+            <ul>
+                <li>Condicionais: <code>if condição:</code>, <code>elif condição:</code>, <code>else:</code></li>
+                <li>Loops: <code>for item in lista:</code>, <code>while condição:</code></li>
+                <li>Funções: <code>def nome_função(parâmetros):</code></li>
+                <li>Classes: <code>class NomeDaClasse:</code></li>
+                <li>Blocos de exceção: <code>try:</code>, <code>except:</code>, <code>finally:</code></li>
+            </ul>
+
+            <h3>2. Instruções por linha</h3>
+
+            <p>
+                Normalmente, cada linha em Python contém uma única instrução. No entanto, você pode colocar múltiplas 
+                instruções em uma linha usando ponto e vírgula (<code>;</code>), embora não seja recomendado para manter a legibilidade:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Várias instruções em uma linha (não recomendado)
+a = 1; b = 2; print(a + b)
+
+# Forma preferida: uma instrução por linha
+a = 1
+b = 2
+print(a + b)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+3
+3
+                </div>
+            </div>
+
+            <h3>3. Quebra de linha para instruções longas</h3>
+
+            <p>
+                Para instruções longas, você pode quebrar uma linha usando a barra invertida (<code>\</code>) ou implicitamente dentro de 
+                parênteses, colchetes ou chaves:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Quebra de linha com barra invertida
+soma = 1 + 2 + 3 + \
+       4 + 5 + 6
+
+# Quebra de linha implícita em parênteses (preferida)
+soma = (1 + 2 + 3 +
+        4 + 5 + 6)
+
+print(soma)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+21
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Boa Prática
+                </div>
+                <p>
+                    Embora possa parecer tentador economizar linhas, a forma mais legível de código Python 
+                    é geralmente aquela que usa uma instrução por linha e indentação adequada. Isso facilita 
+                    muito a leitura e manutenção do código.
+                </p>
+            </div>
+
+            <h2>Por que Python usa Indentação?</h2>
+
+            <p>
+                Python foi projetado por Guido van Rossum com um princípio importante em mente: 
+                o código deve ser fácil de ler. A indentação obrigatória força os programadores 
+                a estruturar visualmente o código de forma clara e consistente.
+            </p>
+
+            <p>
+                Vamos comparar como o mesmo código ficaria em Python e em outra linguagem que usa chaves (como JavaScript):
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Código em Python
+if idade < 18:
+    print("Menor de idade")
+    if idade < 13:
+        print("Criança")
+    else:
+        print("Adolescente")
+else:
+    print("Adulto")</code></pre>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">JavaScript</div>
+                <div class="code-content">
+                    <pre><code class="javascript">// Código em JavaScript
+if (idade < 18) {
+    console.log("Menor de idade");
+    if (idade < 13) {
+        console.log("Criança");
+    } else {
+        console.log("Adolescente");
+    }
+} else {
+    console.log("Adulto");
+}</code></pre>
+                </div>
+            </div>
+
+            <p>
+                A abordagem de Python tem algumas vantagens:
+            </p>
+
+            <ul>
+                <li>Força um estilo consistente para todos os programadores</li>
+                <li>Reduz a quantidade de caracteres extras (chaves)</li>
+                <li>Torna mais difícil escrever código com estrutura confusa</li>
+                <li>A estrutura do código fica visualmente óbvia</li>
+            </ul>
+
+            <h2>Dicas e Boas Práticas</h2>
+            
+            <ul>
+                <li><strong>Seja consistente com espaços</strong>: Use sempre 4 espaços para cada nível de indentação (padrão PEP 8)</li>
+                <li><strong>Configure seu editor</strong>: A maioria dos editores de código podem ser configurados para inserir 4 espaços quando você pressiona a tecla Tab</li>
+                <li><strong>Limite o aninhamento</strong>: Tente evitar mais de 3-4 níveis de indentação, pois isso pode tornar o código difícil de ler</li>
+                <li><strong>Linhas em branco</strong>: Use-as para separar blocos lógicos de código e aumentar a legibilidade</li>
+                <li><strong>Comentários</strong>: Use-os para explicar seções complexas, mas mantenha a indentação consistente também nos comentários</li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    O que é PEP 8?
+                </div>
+                <p>
+                    PEP 8 é o guia oficial de estilo para código Python. PEP significa "Python Enhancement Proposal" 
+                    (Proposta de Melhoria do Python), e o PEP 8 específico estabelece convenções de codificação para 
+                    tornar o código Python mais legível e consistente. Seguir o PEP 8 é considerado uma boa prática na 
+                    comunidade Python.
+                </p>
+            </div>
+
+            <h2>Resumo</h2>
+            
+            <ul>
+                <li><strong>Indentação</strong>: Em Python, a indentação não é apenas estética - é parte da sintaxe da linguagem</li>
+                <li><strong>Blocos de código</strong>: São definidos pela quantidade de espaços no início da linha</li>
+                <li><strong>Consistência</strong>: Todos os comandos em um mesmo bloco devem ter exatamente a mesma indentação</li>
+                <li><strong>Padrão</strong>: O recomendado são 4 espaços por nível de indentação</li>
+                <li><strong>Dois-pontos</strong>: Indicam o início de um bloco indentado (após if, for, while, def, etc.)</li>
+                <li><strong>Erros comuns</strong>: Misturar espaços e tabulações, usar indentação inconsistente ou esquecer de indentar</li>
+            </ul>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Lembre-se!
+                </div>
+                <p>
+                    No início, pode ser frustrante encontrar erros de indentação, especialmente se você está acostumado
+                    com outras linguagens. Mas com prática, você se acostumará rapidamente e verá como a indentação 
+                    torna o código mais legível.
+                </p>
+            </div>
+
+            <h2>Exercícios</h2>
+            
+            <ol>
+                <li>Identifique e corrija os erros de indentação no seguinte código:
+                    <pre><code class="python">if 5 > 3:
+print("5 é maior que 3")
+  print("Este é um fato matemático")
+else:
+  print("Algo está errado")
+    print("Isso não deveria acontecer")</code></pre>
+                </li>
+                <li>Escreva um programa que use múltiplos níveis de indentação (pelo menos 3) para criar uma estrutura aninhada de condicionais ou loops.</li>
+            </ol>
+            
+            <div class="navigation-buttons">
+                <a href="modulo2-1.html" class="nav-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Anterior: 2.1 Primeiro código
+                </a>
+                <a href="modulo2-3.html" class="nav-btn next-btn">
+                    Próximo: 2.3 Comentários <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

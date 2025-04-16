@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1 Estruturas Condicionais - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+
+                <!-- Módulo 4 -->
+                <div class="module-title">
+                    Módulo 4 - Estruturas de Controle
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo4-1.html">4.1 Estruturas Condicionais</a>
+                    <a href="modulo4-2.html">4.2 Estruturas de Repetição</a>
+                    <a href="modulo4-3.html">4.3 Compreensões de Listas</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>4.1 Estruturas Condicionais em Python</h1>
+            </div>
+            
+            <p>
+                Em programação, frequentemente precisamos que nosso código tome decisões. Por exemplo, 
+                podemos querer executar uma ação apenas se um usuário tiver idade suficiente, ou mostrar 
+                diferentes mensagens com base na temperatura. Para isso, usamos <strong>estruturas condicionais</strong>.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>Como usar a instrução <code>if</code> para executar código condicionalmente</li>
+                    <li>Como adicionar alternativas com <code>elif</code> e <code>else</code></li>
+                    <li>Como trabalhar com operadores de comparação</li>
+                    <li>Como combinar condições usando operadores lógicos</li>
+                    <li>Como usar estruturas condicionais aninhadas</li>
+                </ul>
+            </div>
+
+            <h2>A Instrução if</h2>
+            
+            <p>
+                A estrutura condicional mais básica em Python é a instrução <code>if</code>. Ela permite 
+                que você execute um bloco de código apenas se uma condição for verdadeira.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Estrutura básica do if
+idade = 18
+
+if idade >= 18:
+    print("Você é maior de idade.")
+    print("Você pode dirigir.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Você é maior de idade.
+Você pode dirigir.
+                </div>
+            </div>
+
+            <p>
+                Vamos analisar este código:
+            </p>
+            <ul>
+                <li>A palavra-chave <code>if</code> inicia a estrutura condicional</li>
+                <li><code>idade >= 18</code> é a condição que está sendo verificada</li>
+                <li>O sinal de dois-pontos <code>:</code> indica o início do bloco condicional</li>
+                <li>As linhas <strong>indentadas</strong> abaixo do <code>if</code> formam o bloco de código que será executado se a condição for verdadeira</li>
+                <li>Se a condição for falsa, o bloco de código é simplesmente ignorado</li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Lembrete sobre indentação
+                </div>
+                <p>
+                    Em Python, a indentação é crucial! Todo o código que faz parte do bloco <code>if</code> deve 
+                    estar indentado (geralmente com 4 espaços). Quando você volta ao nível de indentação anterior, 
+                    está indicando que o bloco terminou.
+                </p>
+            </div>
+
+            <h2>Adicionando Alternativas: else</h2>
+            
+            <p>
+                E se quisermos executar um código diferente quando a condição for falsa? Para isso, usamos a 
+                instrução <code>else</code>.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando if com else
+idade = 16
+
+if idade >= 18:
+    print("Você é maior de idade.")
+    print("Você pode dirigir.")
+else:
+    print("Você é menor de idade.")
+    print("Você não pode dirigir ainda.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Você é menor de idade.
+Você não pode dirigir ainda.
+                </div>
+            </div>
+
+            <p>
+                Aqui, como <code>idade</code> é 16 (menor que 18), a condição <code>idade >= 18</code> é falsa. 
+                Portanto, o bloco <code>else</code> é executado.
+            </p>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia
+                </div>
+                <p>
+                    Pense em estruturas condicionais como cruzamentos em uma estrada. O <code>if</code> é como uma 
+                    placa que diz "Se você quiser ir para a cidade A, vire à direita". O <code>else</code> é como 
+                    uma instrução complementar que diz "Caso contrário (se não quiser ir para a cidade A), vire à esquerda".
+                </p>
+            </div>
+
+            <h2>Múltiplas Condições: elif</h2>
+            
+            <p>
+                Muitas vezes, precisamos verificar mais de duas possibilidades. Para isso, usamos a instrução <code>elif</code> 
+                (abreviação de "else if").
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Usando if, elif e else
+nota = 75
+
+if nota >= 90:
+    print("Conceito A")
+elif nota >= 80:
+    print("Conceito B")
+elif nota >= 70:
+    print("Conceito C")
+elif nota >= 60:
+    print("Conceito D")
+else:
+    print("Conceito F")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Conceito C
+                </div>
+            </div>
+
+            <p>
+                Este código verifica várias faixas de notas e imprime o conceito correspondente. As condições são 
+                verificadas em ordem, e assim que uma condição verdadeira é encontrada, o bloco associado é executado e 
+                as verificações subsequentes são ignoradas.
+            </p>
+
+            <p>
+                No exemplo, como <code>nota</code> é 75, a primeira condição (<code>nota >= 90</code>) é falsa, 
+                então passamos para a próxima. A segunda condição (<code>nota >= 80</code>) também é falsa. A 
+                terceira condição (<code>nota >= 70</code>) é verdadeira, então "Conceito C" é impresso e as 
+                verificações seguintes são ignoradas.
+            </p>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Importante!
+                </div>
+                <p>
+                    A ordem das condições <code>if</code>/<code>elif</code> é importante! Python verifica as condições 
+                    sequencialmente, de cima para baixo, e executa o primeiro bloco cuja condição for verdadeira.
+                </p>
+                <p>
+                    Se você invertesse a ordem das condições no exemplo anterior, o resultado seria diferente, pois 
+                    qualquer nota acima de 60 atenderia à primeira condição.
+                </p>
+            </div>
+
+            <h2>Operadores de Comparação</h2>
+            
+            <p>
+                Para criar condições, usamos operadores de comparação, que comparam valores e retornam um resultado 
+                booleano (verdadeiro ou falso). Aqui estão os principais operadores de comparação em Python:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Operador</th>
+                    <th>Descrição</th>
+                    <th>Exemplo</th>
+                </tr>
+                <tr>
+                    <td><code>==</code></td>
+                    <td>Igual a</td>
+                    <td><code>a == b</code> (verifica se a é igual a b)</td>
+                </tr>
+                <tr>
+                    <td><code>!=</code></td>
+                    <td>Diferente de</td>
+                    <td><code>a != b</code> (verifica se a é diferente de b)</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;</code></td>
+                    <td>Menor que</td>
+                    <td><code>a &lt; b</code> (verifica se a é menor que b)</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;</code></td>
+                    <td>Maior que</td>
+                    <td><code>a &gt; b</code> (verifica se a é maior que b)</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;=</code></td>
+                    <td>Menor ou igual a</td>
+                    <td><code>a &lt;= b</code> (verifica se a é menor ou igual a b)</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;=</code></td>
+                    <td>Maior ou igual a</td>
+                    <td><code>a &gt;= b</code> (verifica se a é maior ou igual a b)</td>
+                </tr>
+            </table>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplos de operadores de comparação
+a = 10
+b = 20
+
+print("a == b:", a == b)  # Equal to
+print("a != b:", a != b)  # Not equal to
+print("a < b:", a < b)    # Less than
+print("a > b:", a > b)    # Greater than
+print("a <= b:", a <= b)  # Less than or equal to
+print("a >= b:", a >= b)  # Greater than or equal to
+
+# Comparando strings (comparação lexicográfica/alfabética)
+nome1 = "Ana"
+nome2 = "Carlos"
+print("Ana vem antes de Carlos alfabeticamente:", nome1 < nome2)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+a == b: False
+a != b: True
+a < b: True
+a > b: False
+a <= b: True
+a >= b: False
+Ana vem antes de Carlos alfabeticamente: True
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <div class="info-box-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Atenção!
+                </div>
+                <p>
+                    Não confunda o operador de atribuição <code>=</code> com o operador de igualdade <code>==</code>:
+                </p>
+                <ul>
+                    <li><code>=</code> é usado para atribuir um valor a uma variável</li>
+                    <li><code>==</code> é usado para verificar se dois valores são iguais</li>
+                </ul>
+                <p>
+                    Usar <code>=</code> em uma condição pode causar erros ou comportamentos inesperados!
+                </p>
+            </div>
+
+            <h2>Operadores Lógicos</h2>
+            
+            <p>
+                Muitas vezes, precisamos verificar várias condições simultaneamente. Para isso, usamos operadores lógicos:
+            </p>
+
+            <ul>
+                <li><code>and</code>: retorna True se <em>ambas</em> as condições forem verdadeiras</li>
+                <li><code>or</code>: retorna True se <em>pelo menos uma</em> das condições for verdadeira</li>
+                <li><code>not</code>: inverte o resultado de uma condição (True vira False e vice-versa)</li>
+            </ul>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplos de operadores lógicos
+idade = 25
+tem_carteira = True
+
+# Usando o operador AND (ambas as condições devem ser verdadeiras)
+if idade >= 18 and tem_carteira:
+    print("Você pode dirigir.")
+else:
+    print("Você não pode dirigir.")
+
+# Usando o operador OR (pelo menos uma condição deve ser verdadeira)
+chovendo = True
+tem_guarda_chuva = False
+
+if chovendo or tem_guarda_chuva:
+    print("Você não vai se molhar.")
+else:
+    print("Você vai se molhar.")
+
+# Usando o operador NOT (inverte o resultado da condição)
+esta_frio = False
+
+if not esta_frio:
+    print("Você pode sair sem casaco.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Você pode dirigir.
+Você não vai se molhar.
+Você pode sair sem casaco.
+                </div>
+            </div>
+
+            <p>
+                Você também pode combinar múltiplos operadores lógicos em uma única expressão, usando parênteses 
+                para definir a precedência:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Combinando múltiplas condições
+idade = 19
+e_estudante = True
+tem_carteira_estudante = False
+
+# Verificando múltiplas condições
+if idade <= 18 or (e_estudante and tem_carteira_estudante):
+    print("Você tem direito à meia-entrada.")
+else:
+    print("Você deve pagar entrada inteira.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Você deve pagar entrada inteira.
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Tabelas de Verdade
+                </div>
+                <p>
+                    Para entender melhor os operadores lógicos, é útil conhecer suas tabelas de verdade:
+                </p>
+                <h4>AND</h4>
+                <ul>
+                    <li>True and True = True</li>
+                    <li>True and False = False</li>
+                    <li>False and True = False</li>
+                    <li>False and False = False</li>
+                </ul>
+                <h4>OR</h4>
+                <ul>
+                    <li>True or True = True</li>
+                    <li>True or False = True</li>
+                    <li>False or True = True</li>
+                    <li>False or False = False</li>
+                </ul>
+                <h4>NOT</h4>
+                <ul>
+                    <li>not True = False</li>
+                    <li>not False = True</li>
+                </ul>
+            </div>
+
+            <h2>Estruturas Condicionais Aninhadas</h2>
+            
+            <p>
+                Você pode colocar uma estrutura condicional dentro de outra. Essas são chamadas de 
+                estruturas condicionais aninhadas.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Estruturas condicionais aninhadas
+idade = 17
+acompanhado_por_adulto = True
+
+if idade >= 18:
+    print("Você pode assistir ao filme classificado para maiores.")
+else:
+    print("Você é menor de idade.")
+    
+    if acompanhado_por_adulto:
+        print("Mas pode assistir ao filme porque está acompanhado por um adulto.")
+    else:
+        print("E não pode assistir ao filme porque não está acompanhado por um adulto.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Você é menor de idade.
+Mas pode assistir ao filme porque está acompanhado por um adulto.
+                </div>
+            </div>
+
+            <p>
+                Embora seja possível aninhar muitos níveis de condicionais, isso pode tornar seu código 
+                difícil de ler e entender. Quando possível, prefira usar operadores lógicos para combinar 
+                condições em vez de usar muitos níveis de aninhamento.
+            </p>
+
+            <h2>Expressão Condicional (Operador Ternário)</h2>
+            
+            <p>
+                Python oferece uma forma concisa de escrever condicionais simples em uma única linha, 
+                conhecida como expressão condicional ou operador ternário:
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Expressão condicional (operador ternário)
+idade = 20
+
+# Forma extensa
+if idade >= 18:
+    status = "maior de idade"
+else:
+    status = "menor de idade"
+print(f"Forma extensa: Você é {status}.")
+
+# Forma concisa usando expressão condicional
+status = "maior de idade" if idade >= 18 else "menor de idade"
+print(f"Forma concisa: Você é {status}.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Forma extensa: Você é maior de idade.
+Forma concisa: Você é maior de idade.
+                </div>
+            </div>
+
+            <p>
+                A sintaxe da expressão condicional é:
+            </p>
+            
+            <pre><code>valor_se_verdadeiro if condição else valor_se_falso</code></pre>
+            
+            <p>
+                Essa forma é útil quando você quer atribuir um valor com base em uma condição simples, 
+                sem precisar escrever um bloco if-else completo.
+            </p>
+
+            <h2>Condições com Valor Truthy e Falsy</h2>
+            
+            <p>
+                Em Python, qualquer expressão pode ser usada como uma condição, não apenas comparações.
+                Python avalia automaticamente se um valor é considerado "verdadeiro" (truthy) ou "falso" (falsy).
+            </p>
+
+            <p>
+                Os seguintes valores são considerados falsos:
+            </p>
+            <ul>
+                <li>Constante <code>False</code></li>
+                <li>Zero (<code>0</code>, <code>0.0</code>)</li>
+                <li>String vazia (<code>""</code>)</li>
+                <li>Lista, tupla, conjunto ou dicionário vazios (<code>[]</code>, <code>()</code>, <code>set()</code>, <code>{}</code>)</li>
+                <li><code>None</code></li>
+            </ul>
+
+            <p>
+                Qualquer outro valor é considerado verdadeiro.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Exemplos de condições com valores truthy e falsy
+
+# Lista vazia é considerada falsa
+lista = []
+if lista:
+    print("A lista não está vazia.")
+else:
+    print("A lista está vazia.")
+
+# String não vazia é considerada verdadeira
+nome = "Python"
+if nome:
+    print(f"O nome é: {nome}")
+else:
+    print("Nenhum nome foi fornecido.")
+
+# Verificando se uma variável tem um valor ou é None
+resposta = None
+if resposta:
+    print(f"A resposta é: {resposta}")
+else:
+    print("Nenhuma resposta foi fornecida.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+A lista está vazia.
+O nome é: Python
+Nenhuma resposta foi fornecida.
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica
+                </div>
+                <p>
+                    Usar valores truthy e falsy pode tornar seu código mais conciso, mas também pode deixá-lo 
+                    menos explícito. Para maior clareza, especialmente em código que será lido por outros 
+                    (ou por você mesmo no futuro), considere usar comparações explícitas:
+                </p>
+                <ul>
+                    <li>Em vez de <code>if lista:</code>, use <code>if len(lista) > 0:</code></li>
+                    <li>Em vez de <code>if resposta:</code>, use <code>if resposta is not None:</code></li>
+                </ul>
+            </div>
+
+            <h2>Aplicações Práticas</h2>
+            
+            <h3>Verificador de Elegibilidade para Empréstimo</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Programa para verificar elegibilidade para empréstimo
+print("=== Verificador de Elegibilidade para Empréstimo ===")
+
+# Coletando informações do usuário
+idade = int(input("Digite sua idade: "))
+salario = float(input("Digite seu salário mensal: "))
+tempo_emprego = float(input("Há quantos anos você está no emprego atual? "))
+
+# Verificando elegibilidade
+if idade < 18:
+    print("Desculpe, você precisa ser maior de idade para solicitar um empréstimo.")
+elif salario < 1000:
+    print("Desculpe, o salário mínimo necessário é R$ 1.000,00.")
+elif tempo_emprego < 1:
+    print("Desculpe, você precisa estar no emprego atual por pelo menos 1 ano.")
+else:
+    # Pessoa é elegível, vamos calcular o valor máximo do empréstimo
+    max_emprestimo = salario * 10
+    
+    if idade > 50:
+        # Reduzir um pouco para pessoas mais velhas (maior risco)
+        max_emprestimo *= 0.8
+    
+    if tempo_emprego > 5:
+        # Aumentar para pessoas com estabilidade no emprego
+        max_emprestimo *= 1.2
+        
+    print(f"Parabéns! Você é elegível para um empréstimo.")
+    print(f"Valor máximo aprovado: R$ {max_emprestimo:.2f}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+=== Verificador de Elegibilidade para Empréstimo ===
+Digite sua idade: 30
+Digite seu salário mensal: 3000
+Há quantos anos você está no emprego atual? 3
+Parabéns! Você é elegível para um empréstimo.
+Valor máximo aprovado: R$ 30000.00
+                </div>
+            </div>
+
+            <h3>Calculadora de IMC com Interpretação</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Calculadora de IMC (Índice de Massa Corporal)
+print("=== Calculadora de IMC ===")
+
+# Coletando informações do usuário
+peso = float(input("Digite seu peso em kg: "))
+altura = float(input("Digite sua altura em metros: "))
+
+# Calculando o IMC
+imc = peso / (altura ** 2)
+
+# Interpretando o resultado
+print(f"\nSeu IMC é: {imc:.1f}")
+
+if imc < 18.5:
+    print("Classificação: Abaixo do peso")
+    print("Recomendação: Consulte um nutricionista para orientações sobre como ganhar peso de forma saudável.")
+elif imc < 25:
+    print("Classificação: Peso normal")
+    print("Recomendação: Continue mantendo hábitos saudáveis!")
+elif imc < 30:
+    print("Classificação: Sobrepeso")
+    print("Recomendação: Considere incluir mais atividade física na sua rotina.")
+elif imc < 35:
+    print("Classificação: Obesidade Grau I")
+    print("Recomendação: Consulte um profissional de saúde para orientações específicas.")
+elif imc < 40:
+    print("Classificação: Obesidade Grau II")
+    print("Recomendação: É importante buscar acompanhamento médico.")
+else:
+    print("Classificação: Obesidade Grau III")
+    print("Recomendação: Busque ajuda médica para um plano de saúde personalizado.")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+=== Calculadora de IMC ===
+Digite seu peso em kg: 70
+Digite sua altura em metros: 1.75
+
+Seu IMC é: 22.9
+Classificação: Peso normal
+Recomendação: Continue mantendo hábitos saudáveis!
+                </div>
+            </div>
+
+            <h2>Resumo</h2>
+            
+            <ul>
+                <li><strong>if</strong>: Executa um bloco de código se uma condição for verdadeira</li>
+                <li><strong>else</strong>: Executa um bloco de código se a condição do if for falsa</li>
+                <li><strong>elif</strong>: Permite verificar múltiplas condições em sequência</li>
+                <li><strong>Operadores de comparação</strong>: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
+                <li><strong>Operadores lógicos</strong>: <code>and</code>, <code>or</code>, <code>not</code></li>
+                <li><strong>Expressão condicional</strong>: Forma concisa de escrever condicionais simples (<code>valor_se_verdadeiro if condição else valor_se_falso</code>)</li>
+                <li><strong>Valores truthy/falsy</strong>: Python considera automaticamente se um valor é "verdadeiro" ou "falso" em um contexto condicional</li>
+            </ul>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Dica de Boas Práticas
+                </div>
+                <p>
+                    Quando escrever estruturas condicionais:
+                </p>
+                <ul>
+                    <li>Mantenha suas condições simples e legíveis</li>
+                    <li>Use parênteses para agrupar condições complexas</li>
+                    <li>Evite aninhar muitos níveis de if/else (geralmente mais de 3 níveis torna o código difícil de entender)</li>
+                    <li>Considere refatorar lógicas complexas em funções separadas</li>
+                </ul>
+            </div>
+
+            <h2>Exercícios</h2>
+            
+            <ol>
+                <li>Escreva um programa que peça a temperatura em Celsius e classifique o clima como: "Muito frio" (abaixo de 10°C), "Frio" (entre 10°C e 20°C), "Agradável" (entre 20°C e 25°C), "Quente" (entre 25°C e 30°C) ou "Muito quente" (acima de 30°C).</li>
+                <li>Crie um programa que verifique se um ano é bissexto. Um ano é bissexto se for divisível por 4, exceto se for divisível por 100, a menos que também seja divisível por 400.</li>
+                <li>Implemente um programa que peça três números ao usuário e exiba-os em ordem crescente.</li>
+            </ol>
+            
+            <div class="navigation-buttons">
+                <a href="modulo3-3.html" class="nav-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Anterior: 3.3 Conversão de tipos
+                </a>
+                <a href="modulo4-2.html" class="nav-btn next-btn">
+                    Próximo: 4.2 Estruturas de Repetição <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.1 Listas, Tuplas e Conjuntos - Guia Interativo de Python</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js para destaque de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Guia Python</h1>
+            </div>
+            
+            <!-- Menu Mobile Toggle -->
+            <button class="mobile-menu-toggle">Menu</button>
+            
+            <!-- Navegação na Sidebar -->
+            <nav class="sidebar-nav">
+                <!-- Módulo 2 -->
+                <div class="module-title">
+                    Módulo 2 - Primeiros Passos
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo2-1.html">2.1 Primeiro código</a>
+                    <a href="modulo2-2.html">2.2 Sintaxe e indentação</a>
+                    <a href="modulo2-3.html">2.3 Comentários</a>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="module-title">
+                    Módulo 3 - Variáveis e Tipos de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo3-1.html">3.1 O que são variáveis?</a>
+                    <a href="modulo3-2.html">3.2 Tipos de dados</a>
+                    <a href="modulo3-3.html">3.3 Conversão de tipos</a>
+                </div>
+                
+                <!-- Módulo 4 -->
+                <div class="module-title">
+                    Módulo 4 - Estruturas de Controle
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo4-1.html">4.1 Estruturas condicionais (if-else)</a>
+                    <a href="modulo4-2.html">4.2 Laços de repetição (for)</a>
+                    <a href="modulo4-3.html">4.3 Laços de repetição (while)</a>
+                </div>
+                
+                <!-- Módulo 5 -->
+                <div class="module-title">
+                    Módulo 5 - Estruturas de Dados
+                    <span class="icon">+</span>
+                </div>
+                <div class="module-items">
+                    <a href="modulo5-1.html">5.1 Listas, Tuplas e Conjuntos</a>
+                    <a href="modulo5-2.html">5.2 Dicionários</a>
+                    <a href="modulo5-3.html">5.3 Manipulação Avançada de Strings</a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>5.1 Listas, Tuplas e Conjuntos em Python</h1>
+            </div>
+            
+            <p>
+                Até agora, aprendemos sobre variáveis simples que armazenam um único valor. Mas e se precisarmos armazenar vários valores relacionados? 
+                Para isso, o Python oferece estruturas de dados como <strong>listas</strong>, <strong>tuplas</strong> e <strong>conjuntos</strong>, 
+                que permitem organizar e manipular coleções de itens.
+            </p>
+
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    O que aprenderemos
+                </div>
+                <p>
+                    Nesta seção, você aprenderá:
+                </p>
+                <ul>
+                    <li>Como criar e manipular listas em Python</li>
+                    <li>Como trabalhar com tuplas, uma estrutura de dados imutável</li>
+                    <li>Como usar conjuntos (sets) para coleções de itens únicos</li>
+                    <li>Métodos comuns para trabalhar com estas estruturas</li>
+                    <li>Quando usar cada tipo de estrutura de dados</li>
+                </ul>
+            </div>
+
+            <!-- LISTAS -->
+            <h2>Listas em Python</h2>
+            
+            <p>
+                Listas são uma das estruturas de dados mais versáteis em Python. Elas permitem armazenar uma coleção ordenada 
+                de itens que podem ser modificados (são mutáveis).
+            </p>
+
+            <h3>Criando Listas</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando uma lista de números
+numeros = [1, 2, 3, 4, 5]
+print(numeros)
+
+# Lista de strings
+frutas = ["maçã", "banana", "laranja", "uva"]
+print(frutas)
+
+# Lista com diferentes tipos de dados
+misturada = [1, "dois", 3.0, True]
+print(misturada)
+
+# Lista vazia
+vazia = []
+print(vazia)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+[1, 2, 3, 4, 5]
+['maçã', 'banana', 'laranja', 'uva']
+[1, 'dois', 3.0, True]
+[]
+                </div>
+            </div>
+
+            <h3>Acessando elementos de uma lista</h3>
+            
+            <p>
+                Os elementos de uma lista são acessados por índices, que começam em 0 para o primeiro elemento.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">frutas = ["maçã", "banana", "laranja", "uva"]
+
+# Acessando o primeiro elemento (índice 0)
+print("Primeiro elemento:", frutas[0])
+
+# Acessando o terceiro elemento (índice 2)
+print("Terceiro elemento:", frutas[2])
+
+# Índices negativos contam de trás para frente
+print("Último elemento:", frutas[-1])
+print("Penúltimo elemento:", frutas[-2])</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Primeiro elemento: maçã
+Terceiro elemento: laranja
+Último elemento: uva
+Penúltimo elemento: laranja
+                </div>
+            </div>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia
+                </div>
+                <p>
+                    Pense em uma lista como uma fila de caixas numeradas. Cada caixa (elemento) tem uma etiqueta 
+                    numérica (índice) que começa em 0. Quando você quer acessar uma caixa específica, você usa 
+                    sua etiqueta para encontrá-la rapidamente, como em um sistema de arquivamento.
+                </p>
+            </div>
+
+            <h3>Modificando Listas</h3>
+            
+            <p>
+                Listas são mutáveis, o que significa que podemos alterar seus elementos após a criação.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">frutas = ["maçã", "banana", "laranja", "uva"]
+print("Lista original:", frutas)
+
+# Mudando um elemento
+frutas[1] = "morango"
+print("Após modificação:", frutas)
+
+# Adicionando um novo elemento
+frutas.append("abacaxi")
+print("Após append:", frutas)
+
+# Inserindo em uma posição específica
+frutas.insert(2, "pêra")
+print("Após insert:", frutas)
+
+# Removendo um elemento
+frutas.remove("maçã")
+print("Após remove:", frutas)
+
+# Removendo pelo índice
+del frutas[0]
+print("Após del:", frutas)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Lista original: ['maçã', 'banana', 'laranja', 'uva']
+Após modificação: ['maçã', 'morango', 'laranja', 'uva']
+Após append: ['maçã', 'morango', 'laranja', 'uva', 'abacaxi']
+Após insert: ['maçã', 'morango', 'pêra', 'laranja', 'uva', 'abacaxi']
+Após remove: ['morango', 'pêra', 'laranja', 'uva', 'abacaxi']
+Após del: ['pêra', 'laranja', 'uva', 'abacaxi']
+                </div>
+            </div>
+
+            <h3>Métodos úteis para Listas</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">numeros = [5, 2, 8, 1, 9, 3]
+print("Lista original:", numeros)
+
+# Ordenando a lista
+numeros.sort()
+print("Lista ordenada:", numeros)
+
+# Invertendo a lista
+numeros.reverse()
+print("Lista invertida:", numeros)
+
+# Contando ocorrências
+lista_com_repetição = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+print("Número de 3s:", lista_com_repetição.count(3))
+
+# Encontrando o índice de um elemento
+print("Índice do elemento 3:", lista_com_repetição.index(3))
+
+# Comprimento da lista
+print("Tamanho da lista:", len(lista_com_repetição))</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Lista original: [5, 2, 8, 1, 9, 3]
+Lista ordenada: [1, 2, 3, 5, 8, 9]
+Lista invertida: [9, 8, 5, 3, 2, 1]
+Número de 3s: 3
+Índice do elemento 3: 3
+Tamanho da lista: 10
+                </div>
+            </div>
+
+            <h3>Fatiamento de Listas</h3>
+            
+            <p>
+                O fatiamento (slicing) permite extrair partes de uma lista.
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Obter elementos do índice 2 até o 5 (exclusivo)
+print("Fatia [2:5]:", numeros[2:5])
+
+# Do início até o índice 4
+print("Fatia [:4]:", numeros[:4])
+
+# Do índice 6 até o final
+print("Fatia [6:]:", numeros[6:])
+
+# Com passo (step)
+print("Fatia com passo 2:", numeros[0:10:2])
+
+# Invertendo a lista
+print("Lista invertida:", numeros[::-1])</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Fatia [2:5]: [2, 3, 4]
+Fatia [:4]: [0, 1, 2, 3]
+Fatia [6:]: [6, 7, 8, 9]
+Fatia com passo 2: [0, 2, 4, 6, 8]
+Lista invertida: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+                </div>
+            </div>
+
+            <!-- TUPLAS -->
+            <h2>Tuplas em Python</h2>
+            
+            <p>
+                Tuplas são semelhantes às listas, mas são imutáveis, ou seja, não podem ser modificadas após a criação.
+                São usadas para dados que não devem ser alterados, como coordenadas ou configurações.
+            </p>
+
+            <h3>Criando e Usando Tuplas</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando uma tupla
+coordenadas = (10, 20)
+print("Coordenadas:", coordenadas)
+
+# Tupla com diferentes tipos
+pessoa = ("João", 25, "Engenheiro")
+print("Pessoa:", pessoa)
+
+# Tupla com um único elemento (precisa da vírgula)
+singleton = (42,)
+print("Singleton:", singleton)
+
+# Acessando elementos (igual às listas)
+print("Nome:", pessoa[0])
+print("Idade:", pessoa[1])
+
+# Tentando modificar uma tupla (vai gerar erro)
+# pessoa[1] = 26  # Isso causaria um TypeError</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Coordenadas: (10, 20)
+Pessoa: ('João', 25, 'Engenheiro')
+Singleton: (42,)
+Nome: João
+Idade: 25
+                </div>
+            </div>
+
+            <h3>Métodos e Operações com Tuplas</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">tupla1 = (1, 2, 3)
+tupla2 = (4, 5, 6)
+
+# Concatenando tuplas
+tupla3 = tupla1 + tupla2
+print("Tuplas concatenadas:", tupla3)
+
+# Repetindo uma tupla
+tupla_repetida = tupla1 * 3
+print("Tupla repetida:", tupla_repetida)
+
+# Verificando se um elemento existe
+print("2 está na tupla1?", 2 in tupla1)
+
+# Contando ocorrências
+print("Número de 2s:", tupla_repetida.count(2))
+
+# Obtendo o índice
+print("Índice do primeiro 3:", tupla_repetida.index(3))
+
+# Desempacotando uma tupla
+x, y, z = tupla1
+print(f"x={x}, y={y}, z={z}")</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Tuplas concatenadas: (1, 2, 3, 4, 5, 6)
+Tupla repetida: (1, 2, 3, 1, 2, 3, 1, 2, 3)
+2 está na tupla1? True
+Número de 2s: 3
+Índice do primeiro 3: 2
+x=1, y=2, z=3
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <div class="info-box-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Quando usar Tuplas vs Listas
+                </div>
+                <p>
+                    Use <strong>tuplas</strong>:
+                </p>
+                <ul>
+                    <li>Para coleções de dados que não devem mudar (como dias da semana, coordenadas)</li>
+                    <li>Como chaves em dicionários (listas não podem ser usadas como chaves)</li>
+                    <li>Para retornar múltiplos valores de uma função</li>
+                </ul>
+                <p>
+                    Use <strong>listas</strong>:
+                </p>
+                <ul>
+                    <li>Quando precisar adicionar ou remover itens</li>
+                    <li>Quando precisar modificar elementos após a criação</li>
+                    <li>Quando a ordem dos itens puder mudar</li>
+                </ul>
+            </div>
+
+            <!-- CONJUNTOS -->
+            <h2>Conjuntos (Sets) em Python</h2>
+            
+            <p>
+                Conjuntos são coleções não ordenadas de elementos únicos. São úteis para eliminar duplicatas 
+                e realizar operações matemáticas como união, interseção e diferença.
+            </p>
+
+            <h3>Criando e Usando Conjuntos</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python"># Criando um conjunto
+numeros = {1, 2, 3, 4, 5}
+print("Conjunto de números:", numeros)
+
+# Criando um conjunto a partir de uma lista (remove duplicatas)
+lista_com_duplicatas = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+conjunto_sem_duplicatas = set(lista_com_duplicatas)
+print("Lista original:", lista_com_duplicatas)
+print("Conjunto sem duplicatas:", conjunto_sem_duplicatas)
+
+# Conjunto vazio (não pode usar {}, pois isso cria um dicionário vazio)
+conjunto_vazio = set()
+print("Conjunto vazio:", conjunto_vazio)
+
+# Verificando se um elemento existe
+print("2 está no conjunto?", 2 in numeros)
+
+# Tentando acessar por índice (vai gerar erro)
+# numeros[0]  # Isso causaria um TypeError porque conjuntos não suportam indexação</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Conjunto de números: {1, 2, 3, 4, 5}
+Lista original: [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+Conjunto sem duplicatas: {1, 2, 3, 4}
+Conjunto vazio: set()
+2 está no conjunto? True
+                </div>
+            </div>
+
+            <h3>Operações com Conjuntos</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">conjunto_a = {1, 2, 3, 4, 5}
+conjunto_b = {4, 5, 6, 7, 8}
+
+# União (todos os elementos de ambos os conjuntos)
+print("União:", conjunto_a | conjunto_b)  # ou conjunto_a.union(conjunto_b)
+
+# Interseção (elementos presentes em ambos os conjuntos)
+print("Interseção:", conjunto_a & conjunto_b)  # ou conjunto_a.intersection(conjunto_b)
+
+# Diferença (elementos em A, mas não em B)
+print("Diferença A-B:", conjunto_a - conjunto_b)  # ou conjunto_a.difference(conjunto_b)
+print("Diferença B-A:", conjunto_b - conjunto_a)  # ou conjunto_b.difference(conjunto_a)
+
+# Diferença simétrica (elementos em A ou B, mas não em ambos)
+print("Diferença simétrica:", conjunto_a ^ conjunto_b)  # ou conjunto_a.symmetric_difference(conjunto_b)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+União: {1, 2, 3, 4, 5, 6, 7, 8}
+Interseção: {4, 5}
+Diferença A-B: {1, 2, 3}
+Diferença B-A: {6, 7, 8}
+Diferença simétrica: {1, 2, 3, 6, 7, 8}
+                </div>
+            </div>
+
+            <h3>Modificando Conjuntos</h3>
+
+            <div class="code-block">
+                <div class="code-header">Python</div>
+                <div class="code-content">
+                    <pre><code class="python">conjunto = {1, 2, 3}
+print("Conjunto original:", conjunto)
+
+# Adicionando um elemento
+conjunto.add(4)
+print("Após add(4):", conjunto)
+
+# Adicionando vários elementos
+conjunto.update([5, 6, 7])
+print("Após update([5, 6, 7]):", conjunto)
+
+# Removendo um elemento
+conjunto.remove(3)  # gera erro se o elemento não existir
+print("Após remove(3):", conjunto)
+
+# Removendo com discard (não gera erro se o elemento não existir)
+conjunto.discard(10)  # não faz nada, pois 10 não existe
+print("Após discard(10):", conjunto)
+
+# Removendo e retornando um elemento aleatório
+elemento = conjunto.pop()
+print(f"Elemento removido: {elemento}")
+print("Após pop():", conjunto)
+
+# Limpando o conjunto
+conjunto.clear()
+print("Após clear():", conjunto)</code></pre>
+                </div>
+                <div class="code-footer">
+                    <button class="execute-btn">Executar &gt;</button>
+                </div>
+                <div class="code-output">
+Conjunto original: {1, 2, 3}
+Após add(4): {1, 2, 3, 4}
+Após update([5, 6, 7]): {1, 2, 3, 4, 5, 6, 7}
+Após remove(3): {1, 2, 4, 5, 6, 7}
+Após discard(10): {1, 2, 4, 5, 6, 7}
+Elemento removido: 1
+Após pop(): {2, 4, 5, 6, 7}
+Após clear(): set()
+                </div>
+            </div>
+
+            <div class="info-box analogy">
+                <div class="info-box-title">
+                    <i class="fas fa-sync-alt"></i>
+                    Analogia
+                </div>
+                <p>
+                    Pense em conjuntos como uma caixa onde você coloca objetos, mas cada objeto só pode 
+                    aparecer uma vez. Se você tentar colocar o mesmo objeto várias vezes, a caixa só mantém 
+                    uma instância dele. Além disso, não importa a ordem em que os objetos foram colocados, 
+                    apenas que eles estejam lá.
+                </p>
+            </div>
+
+            <h2>Quando Usar Cada Estrutura</h2>
+            
+            <div class="info-box info">
+                <div class="info-box-title">
+                    <i class="fas fa-info-circle"></i>
+                    Escolhendo a Estrutura Certa
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Estrutura</th>
+                            <th>Características</th>
+                            <th>Quando Usar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Lista</strong></td>
+                            <td>Ordenada, mutável, permite duplicatas</td>
+                            <td>
+                                - Quando a ordem importa<br>
+                                - Quando precisa modificar elementos<br>
+                                - Quando duplicatas são permitidas
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tupla</strong></td>
+                            <td>Ordenada, imutável, permite duplicatas</td>
+                            <td>
+                                - Para dados que não devem mudar<br>
+                                - Para chaves de dicionários<br>
+                                - Para retornar múltiplos valores de funções
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conjunto</strong></td>
+                            <td>Não ordenado, mutável, sem duplicatas</td>
+                            <td>
+                                - Para remover duplicatas<br>
+                                - Para operações matemáticas de conjuntos<br>
+                                - Quando apenas a presença de um item importa
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Exercícios Práticos</h2>
+            
+            <div class="info-box practice">
+                <div class="info-box-title">
+                    <i class="fas fa-tasks"></i>
+                    Exercícios
+                </div>
+                <ol>
+                    <li>
+                        <strong>Lista de compras</strong>: Crie uma lista de compras e adicione 5 itens. 
+                        Depois remova um item e adicione outro.
+                    </li>
+                    <li>
+                        <strong>Coordenadas de pontos</strong>: Crie uma lista de tuplas, onde cada tupla 
+                        contém as coordenadas (x, y) de um ponto.
+                    </li>
+                    <li>
+                        <strong>Remoção de duplicatas</strong>: Dada uma lista de números com duplicatas, 
+                        use um conjunto para criar uma nova lista sem duplicatas.
+                    </li>
+                    <li>
+                        <strong>Interseção de interesses</strong>: Crie dois conjuntos representando os 
+                        interesses de duas pessoas, e encontre os interesses que elas têm em comum.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pagination">
+                <a href="modulo4-3.html" class="prev">&laquo; 4.3 Laços de repetição (while)</a>
+                <a href="modulo5-2.html" class="next">5.2 Dicionários &raquo;</a>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Inicializar highlight.js
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html> 
